@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="CoolTrayIcon">
+  <const name="WM_TRAYNOTIFY" type="Integer">
+    <value>
+      $800
+    </value>
+  </const>
+  <struct name="TTimeoutOrVersion">
+  </struct>
+  <struct name="TNotifyIconDataEx">
+    <field name="cbSize" type="Cardinal" visibility="public" />
+    <field name="hWnd" type="HWND" visibility="public" />
+    <field name="uID" type="Cardinal" visibility="public" />
+    <field name="uFlags" type="Cardinal" visibility="public" />
+    <field name="uCallbackMessage" type="Cardinal" visibility="public" />
+    <field name="hIcon" type="HICON" visibility="public" />
+    <field name="szTip" visibility="public">
+      <array name="szTip" low="0" high="127">
+        <element type="Char" />
+      </array>
+    </field>
+    <field name="dwState" type="Cardinal" visibility="public" />
+    <field name="dwStateMask" type="Cardinal" visibility="public" />
+    <field name="szInfo" visibility="public">
+      <array name="szInfo" low="0" high="255">
+        <element type="Char" />
+      </array>
+    </field>
+    <field name="TimeoutOrVersion" type="TTimeoutOrVersion" visibility="public" />
+    <field name="szInfoTitle" visibility="public">
+      <array name="szInfoTitle" low="0" high="63">
+        <element type="Char" />
+      </array>
+    </field>
+    <field name="dwInfoFlags" type="Cardinal" visibility="public" />
+  </struct>
+  <const name="bitNone" type="TBalloonHintIcon">
+    <value>
+      bitNone
+    </value>
+  </const>
+  <const name="bitInfo" type="TBalloonHintIcon">
+    <value>
+      bitInfo
+    </value>
+  </const>
+  <const name="bitWarning" type="TBalloonHintIcon">
+    <value>
+      bitWarning
+    </value>
+  </const>
+  <const name="bitError" type="TBalloonHintIcon">
+    <value>
+      bitError
+    </value>
+  </const>
+  <const name="bitCustom" type="TBalloonHintIcon">
+    <value>
+      bitCustom
+    </value>
+  </const>
+  <enum name="TBalloonHintIcon">
+    <element name="bitNone" />
+    <element name="bitInfo" />
+    <element name="bitWarning" />
+    <element name="bitError" />
+    <element name="bitCustom" />
+  </enum>
+  <const name="bhWin95" type="TBehavior">
+    <value>
+      bhWin95
+    </value>
+  </const>
+  <const name="bhWin2000" type="TBehavior">
+    <value>
+      bhWin2000
+    </value>
+  </const>
+  <enum name="TBehavior">
+    <element name="bhWin95" />
+    <element name="bhWin2000" />
+  </enum>
+  <type name="THintString" type="AnsiString" />
+  <class name="TCoolTrayIcon">
+    <ancestor name="TComponent" namespace="Classes">
+      <methodref name="GetComObject" visibility="private">
+      </methodref>
+      <methodref name="GetComponent" visibility="private">
+      </methodref>
+      <methodref name="GetComponentCount" visibility="private">
+      </methodref>
+      <methodref name="GetComponentIndex" visibility="private">
+      </methodref>
+      <methodref name="Insert" visibility="private">
+      </methodref>
+      <methodref name="ReadLeft" visibility="private">
+      </methodref>
+      <methodref name="ReadTop" visibility="private">
+      </methodref>
+      <methodref name="Remove" visibility="private">
+      </methodref>
+      <methodref name="RemoveNotification" visibility="private">
+      </methodref>
+      <methodref name="SetComponentIndex" visibility="private">
+      </methodref>
+      <methodref name="SetReference" visibility="private">
+      </methodref>
+      <methodref name="WriteLeft" visibility="private">
+      </methodref>
+      <methodref name="WriteTop" visibility="private">
+      </methodref>
+      <methodref name="IntfGetComponent" visibility="private">
+      </methodref>
+      <methodref name="ChangeName" visibility="protected">
+      </methodref>
+      <methodref name="DefineProperties" visibility="public">
+      </methodref>
+      <methodref name="GetChildren" visibility="protected">
+      </methodref>
+      <methodref name="GetChildOwner" visibility="protected">
+      </methodref>
+      <methodref name="GetChildParent" visibility="protected">
+      </methodref>
+      <methodref name="GetOwner" visibility="protected">
+      </methodref>
+      <methodref name="Loaded" visibility="public">
+      </methodref>
+      <methodref name="Notification" visibility="public">
+      </methodref>
+      <methodref name="PaletteCreated" visibility="protected">
+      </methodref>
+      <methodref name="ReadState" visibility="public">
+      </methodref>
+      <methodref name="SetAncestor" visibility="protected">
+      </methodref>
+      <methodref name="SetDesigning" visibility="protected">
+      </methodref>
+      <methodref name="SetInline" visibility="protected">
+      </methodref>
+      <methodref name="SetDesignInstance" visibility="protected">
+      </methodref>
+      <methodref name="SetName" visibility="public">
+      </methodref>
+      <methodref name="SetChildOrder" visibility="protected">
+      </methodref>
+      <methodref name="SetParentComponent" visibility="protected">
+      </methodref>
+      <methodref name="Updating" visibility="protected">
+      </methodref>
+      <methodref name="Updated" visibility="protected">
+      </methodref>
+      <methodref name="UpdateRegistry" visibility="public">
+      </methodref>
+      <methodref name="ValidateRename" visibility="public">
+      </methodref>
+      <methodref name="ValidateContainer" visibility="protected">
+      </methodref>
+      <methodref name="ValidateInsert" visibility="protected">
+      </methodref>
+      <methodref name="WriteState" visibility="public">
+      </methodref>
+      <methodref name="QueryInterface" visibility="public">
+      </methodref>
+      <methodref name="_AddRef" visibility="protected">
+      </methodref>
+      <methodref name="_Release" visibility="protected">
+      </methodref>
+      <methodref name="GetTypeInfoCount" visibility="protected">
+      </methodref>
+      <methodref name="GetTypeInfo" visibility="protected">
+      </methodref>
+      <methodref name="GetIDsOfNames" visibility="protected">
+      </methodref>
+      <methodref name="Invoke" visibility="protected">
+      </methodref>
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="DestroyComponents" visibility="public">
+      </methodref>
+      <methodref name="Destroying" visibility="public">
+      </methodref>
+      <methodref name="ExecuteAction" visibility="public">
+      </methodref>
+      <methodref name="FindComponent" visibility="public">
+      </methodref>
+      <methodref name="FreeNotification" visibility="public">
+      </methodref>
+      <methodref name="RemoveFreeNotification" visibility="public">
+      </methodref>
+      <methodref name="FreeOnRelease" visibility="public">
+      </methodref>
+      <methodref name="GetEnumerator" visibility="public">
+      </methodref>
+      <methodref name="GetParentComponent" visibility="public">
+      </methodref>
+      <methodref name="GetNamePath" visibility="public">
+      </methodref>
+      <methodref name="HasParent" visibility="public">
+      </methodref>
+      <methodref name="InsertComponent" visibility="public">
+      </methodref>
+      <methodref name="RemoveComponent" visibility="public">
+      </methodref>
+      <methodref name="SetSubComponent" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="UpdateAction" visibility="public">
+      </methodref>
+      <methodref name="IsImplementorOf" visibility="public">
+      </methodref>
+      <methodref name="ReferenceInterface" visibility="public">
+      </methodref>
+      <propertyref name="ComObject" visibility="public">
+      </propertyref>
+      <propertyref name="Components" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentCount" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentIndex" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentState" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentStyle" visibility="public">
+      </propertyref>
+      <propertyref name="DesignInfo" visibility="public">
+      </propertyref>
+      <propertyref name="Owner" visibility="public">
+      </propertyref>
+      <propertyref name="VCLComObject" visibility="public">
+      </propertyref>
+      <propertyref name="Name" visibility="published">
+      </propertyref>
+      <propertyref name="Tag" visibility="published">
+      </propertyref>
+      <ancestor name="TPersistent" namespace="Classes">
+        <methodref name="AssignError" visibility="private">
+        </methodref>
+        <methodref name="AssignTo" visibility="public">
+        </methodref>
+        <methodref name="DefineProperties" visibility="public">
+        </methodref>
+        <methodref name="GetOwner" visibility="protected">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+        <methodref name="Assign" visibility="public">
+        </methodref>
+        <methodref name="GetNamePath" visibility="public">
+        </methodref>
+        <ancestor name="TObject" namespace="System">
+          <methodref name="Create" visibility="public">
+          </methodref>
+          <methodref name="Free" visibility="public">
+          </methodref>
+          <methodref name="InitInstance" visibility="public">
+          </methodref>
+          <methodref name="CleanupInstance" visibility="public">
+          </methodref>
+          <methodref name="ClassType" visibility="public">
+          </methodref>
+          <methodref name="ClassName" visibility="public">
+          </methodref>
+          <methodref name="ClassNameIs" visibility="public">
+          </methodref>
+          <methodref name="ClassParent" visibility="public">
+          </methodref>
+          <methodref name="ClassInfo" visibility="public">
+          </methodref>
+          <methodref name="InstanceSize" visibility="public">
+          </methodref>
+          <methodref name="InheritsFrom" visibility="public">
+          </methodref>
+          <methodref name="MethodAddress" visibility="public">
+          </methodref>
+          <methodref name="MethodName" visibility="public">
+          </methodref>
+          <methodref name="FieldAddress" visibility="public">
+          </methodref>
+          <methodref name="GetInterface" visibility="public">
+          </methodref>
+          <methodref name="GetInterfaceEntry" visibility="public">
+          </methodref>
+          <methodref name="GetInterfaceTable" visibility="public">
+          </methodref>
+          <methodref name="SafeCallException" visibility="public">
+          </methodref>
+          <methodref name="AfterConstruction" visibility="public">
+          </methodref>
+          <methodref name="BeforeDestruction" visibility="public">
+          </methodref>
+          <methodref name="Dispatch" visibility="public">
+          </methodref>
+          <methodref name="DefaultHandler" visibility="public">
+          </methodref>
+          <methodref name="NewInstance" visibility="public">
+          </methodref>
+          <methodref name="FreeInstance" visibility="public">
+          </methodref>
+          <methodref name="Destroy" visibility="public">
+          </methodref>
+        </ancestor>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FEnabled" type="Boolean" visibility="private" />
+      <field name="FIcon" type="TIcon" visibility="private" />
+      <field name="FIconID" type="Cardinal" visibility="private" />
+      <field name="FIconVisible" type="Boolean" visibility="private" />
+      <field name="FHint" type="string" visibility="private" />
+      <field name="FShowHint" type="Boolean" visibility="private" />
+      <field name="FPopupMenu" type="TPopupMenu" visibility="private" />
+      <field name="FLeftPopup" type="Boolean" visibility="private" />
+      <field name="FOnClick" type="TNotifyEvent" visibility="private" />
+      <field name="FOnDblClick" type="TNotifyEvent" visibility="private" />
+      <field name="FOnCycle" type="TCycleEvent" visibility="private" />
+      <field name="FOnStartup" type="TStartupEvent" visibility="private" />
+      <field name="FOnMouseDown" type="TMouseEvent" visibility="private" />
+      <field name="FOnMouseUp" type="TMouseEvent" visibility="private" />
+      <field name="FOnMouseMove" type="TMouseMoveEvent" visibility="private" />
+      <field name="FOnMouseEnter" type="TNotifyEvent" visibility="private" />
+      <field name="FOnMouseExit" type="TNotifyEvent" visibility="private" />
+      <field name="FOnMinimizeToTray" type="TNotifyEvent" visibility="private" />
+      <field name="FOnBalloonHintShow" type="TNotifyEvent" visibility="private" />
+      <field name="FOnBalloonHintHide" type="TNotifyEvent" visibility="private" />
+      <field name="FOnBalloonHintTimeout" type="TNotifyEvent" visibility="private" />
+      <field name="FOnBalloonHintClick" type="TNotifyEvent" visibility="private" />
+      <field name="FMinimizeToTray" type="Boolean" visibility="private" />
+      <field name="FClickStart" type="Boolean" visibility="private" />
+      <field name="FClickReady" type="Boolean" visibility="private" />
+      <field name="CycleTimer" type="TSimpleTimer" visibility="private" />
+      <field name="ClickTimer" type="TSimpleTimer" visibility="private" />
+      <field name="ExitTimer" type="TSimpleTimer" visibility="private" />
+      <field name="LastMoveX" type="Integer" visibility="private" />
+      <field name="LastMoveY" type="Integer" visibility="private" />
+      <field name="FDidExit" type="Boolean" visibility="private" />
+      <field name="FWantEnterExitEvents" type="Boolean" visibility="private" />
+      <field name="FBehavior" type="TBehavior" visibility="private" />
+      <field name="IsDblClick" type="Boolean" visibility="private" />
+      <field name="FIconIndex" type="Integer" visibility="private" />
+      <field name="FDesignPreview" type="Boolean" visibility="private" />
+      <field name="SettingPreview" type="Boolean" visibility="private" />
+      <field name="SettingMDIForm" type="Boolean" visibility="private" />
+      <field name="FIconList" type="TCustomImageList" visibility="private" />
+      <field name="FCycleIcons" type="Boolean" visibility="private" />
+      <field name="FCycleInterval" type="Cardinal" visibility="private" />
+      <field name="OldWndProc" type="Pointer" visibility="private" />
+      <field name="NewWndProc" type="Pointer" visibility="private" />
+      <procedure name="SetDesignPreview" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="SetCycleIcons" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="SetCycleInterval" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Cardinal" />
+        </parameters>
+      </procedure>
+      <function name="InitIcon" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="SetIcon" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TIcon" />
+        </parameters>
+      </procedure>
+      <procedure name="SetIconVisible" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="SetIconList" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TCustomImageList" />
+        </parameters>
+      </procedure>
+      <procedure name="SetIconIndex" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="SetHint" visibility="private">
+        <parameters>
+          <parameter name="Value" type="string" />
+        </parameters>
+      </procedure>
+      <procedure name="SetShowHint" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="SetWantEnterExitEvents" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="SetBehavior" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TBehavior" />
+        </parameters>
+      </procedure>
+      <procedure name="IconChanged" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+        </parameters>
+      </procedure>
+      <function name="HookAppProc" visibility="private">
+        <parameters>
+          <parameter name="Msg" type="TMessage" paramflags="var" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="HookForm" visibility="private">
+      </procedure>
+      <procedure name="UnhookForm" visibility="private">
+      </procedure>
+      <procedure name="HookFormProc" visibility="private">
+        <parameters>
+          <parameter name="Msg" type="TMessage" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="ClickTimerProc" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="CycleTimerProc" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="MouseExitTimerProc" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+        </parameters>
+      </procedure>
+      <field name="IconData" type="TNotifyIconDataEx" visibility="protected" />
+      <procedure name="Loaded" visibility="public" procflags="override">
+      </procedure>
+      <function name="LoadDefaultIcon" visibility="public" procflags="virtual">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ShowIcon" visibility="public" procflags="virtual">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="HideIcon" visibility="public" procflags="virtual">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ModifyIcon" visibility="public" procflags="virtual">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="Click" visibility="protected" procflags="dynamic">
+      </procedure>
+      <procedure name="DblClick" visibility="protected" procflags="dynamic">
+      </procedure>
+      <procedure name="CycleIcon" visibility="protected" procflags="dynamic">
+      </procedure>
+      <procedure name="MouseDown" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Button" type="TMouseButton" />
+          <parameter name="Shift" type="TShiftState" />
+          <parameter name="X" type="Integer" />
+          <parameter name="Y" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="MouseUp" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Button" type="TMouseButton" />
+          <parameter name="Shift" type="TShiftState" />
+          <parameter name="X" type="Integer" />
+          <parameter name="Y" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="MouseMove" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Shift" type="TShiftState" />
+          <parameter name="X" type="Integer" />
+          <parameter name="Y" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="MouseEnter" visibility="protected" procflags="dynamic">
+      </procedure>
+      <procedure name="MouseExit" visibility="protected" procflags="dynamic">
+      </procedure>
+      <procedure name="DoMinimizeToTray" visibility="protected" procflags="dynamic">
+      </procedure>
+      <procedure name="Notification" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="AComponent" type="TComponent" />
+          <parameter name="Operation" type="TOperation" />
+        </parameters>
+      </procedure>
+      <field type="HWND" visibility="private" />
+      <property name="Handle" visibility="public" type="HWND" />
+      <property name="Behavior" visibility="public" read="FBehavior" write="SetBehavior" type="TBehavior" default="0" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="AOwner" type="TComponent" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <function name="Refresh" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ShowBalloonHint" visibility="public">
+        <parameters>
+          <parameter name="Title" type="string" />
+          <parameter name="Text" type="string" />
+          <parameter name="IconType" type="TBalloonHintIcon" />
+          <parameter name="TimeoutSecs" type="TBalloonHintTimeOut" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ShowBalloonHintUnicode" visibility="public">
+        <parameters>
+          <parameter name="Title" type="WideString" />
+          <parameter name="Text" type="WideString" />
+          <parameter name="IconType" type="TBalloonHintIcon" />
+          <parameter name="TimeoutSecs" type="TBalloonHintTimeOut" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="HideBalloonHint" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="Popup" visibility="public">
+        <parameters>
+          <parameter name="X" type="Integer" />
+          <parameter name="Y" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="PopupAtCursor" visibility="public">
+      </procedure>
+      <function name="BitmapToIcon" visibility="public">
+        <parameters>
+          <parameter name="Bitmap" type="TBitmap" paramflags="const" />
+          <parameter name="Icon" type="TIcon" paramflags="const" />
+          <parameter name="MaskColor" type="TColor" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetClientIconPos" visibility="public">
+        <parameters>
+          <parameter name="X" type="Integer" />
+          <parameter name="Y" type="Integer" />
+          <retval type="TPoint" />
+        </parameters>
+      </function>
+      <function name="GetTooltipHandle" visibility="public">
+        <parameters>
+          <retval type="HWND" />
+        </parameters>
+      </function>
+      <function name="GetBalloonHintHandle" visibility="public">
+        <parameters>
+          <retval type="HWND" />
+        </parameters>
+      </function>
+      <function name="SetFocus" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="HideTaskbarIcon" visibility="public">
+      </procedure>
+      <procedure name="ShowTaskbarIcon" visibility="public">
+      </procedure>
+      <procedure name="ShowMainForm" visibility="public">
+      </procedure>
+      <procedure name="HideMainForm" visibility="public">
+      </procedure>
+      <property name="DesignPreview" visibility="published" read="FDesignPreview" write="SetDesignPreview" type="Boolean" default="0" />
+      <property name="IconList" visibility="published" read="FIconList" write="SetIconList" type="TCustomImageList" />
+      <property name="CycleIcons" visibility="published" read="FCycleIcons" write="SetCycleIcons" type="Boolean" default="0" />
+      <property name="CycleInterval" visibility="published" read="FCycleInterval" write="SetCycleInterval" type="Cardinal" />
+      <property name="Enabled" visibility="published" read="FEnabled" write="FEnabled" type="Boolean" default="1" />
+      <property name="Hint" visibility="published" read="FHint" write="SetHint" type="string" />
+      <property name="ShowHint" visibility="published" read="FShowHint" write="SetShowHint" type="Boolean" default="1" />
+      <property name="Icon" visibility="published" read="FIcon" write="SetIcon" type="TIcon" />
+      <property name="IconVisible" visibility="published" read="FIconVisible" write="SetIconVisible" type="Boolean" default="0" />
+      <property name="IconIndex" visibility="published" read="FIconIndex" write="SetIconIndex" type="Integer" />
+      <property name="PopupMenu" visibility="published" read="FPopupMenu" write="FPopupMenu" type="TPopupMenu" />
+      <property name="LeftPopup" visibility="published" read="FLeftPopup" write="FLeftPopup" type="Boolean" default="0" />
+      <property name="WantEnterExitEvents" visibility="published" read="FWantEnterExitEvents" write="SetWantEnterExitEvents" type="Boolean" default="0" />
+      <property name="MinimizeToTray" visibility="published" read="FMinimizeToTray" write="FMinimizeToTray" type="Boolean" default="0" />
+      <event name="OnClick" visibility="published" read="FOnClick" write="FOnClick" type="TNotifyEvent" />
+      <event name="OnDblClick" visibility="published" read="FOnDblClick" write="FOnDblClick" type="TNotifyEvent" />
+      <event name="OnMouseDown" visibility="published" read="FOnMouseDown" write="FOnMouseDown" type="TMouseEvent" />
+      <event name="OnMouseUp" visibility="published" read="FOnMouseUp" write="FOnMouseUp" type="TMouseEvent" />
+      <event name="OnMouseMove" visibility="published" read="FOnMouseMove" write="FOnMouseMove" type="TMouseMoveEvent" />
+      <event name="OnMouseEnter" visibility="published" read="FOnMouseEnter" write="FOnMouseEnter" type="TNotifyEvent" />
+      <event name="OnMouseExit" visibility="published" read="FOnMouseExit" write="FOnMouseExit" type="TNotifyEvent" />
+      <event name="OnCycle" visibility="published" read="FOnCycle" write="FOnCycle" type="TCycleEvent" />
+      <event name="OnBalloonHintShow" visibility="published" read="FOnBalloonHintShow" write="FOnBalloonHintShow" type="TNotifyEvent" />
+      <event name="OnBalloonHintHide" visibility="published" read="FOnBalloonHintHide" write="FOnBalloonHintHide" type="TNotifyEvent" />
+      <event name="OnBalloonHintTimeout" visibility="published" read="FOnBalloonHintTimeout" write="FOnBalloonHintTimeout" type="TNotifyEvent" />
+      <event name="OnBalloonHintClick" visibility="published" read="FOnBalloonHintClick" write="FOnBalloonHintClick" type="TNotifyEvent" />
+      <event name="OnMinimizeToTray" visibility="published" read="FOnMinimizeToTray" write="FOnMinimizeToTray" type="TNotifyEvent" />
+      <event name="OnStartup" visibility="published" read="FOnStartup" write="FOnStartup" type="TStartupEvent" />
+    </members>
+  </class>
+</namespace>

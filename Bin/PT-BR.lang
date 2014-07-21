@@ -1,0 +1,251 @@
+#Traduzido para o português por MCHAL.webng.com . Obs.: Texto e dicas que aparecerem truncados é por causa da falta de espaço nos painéis do programa. 
+
+[Common]
+Info=Confirmação
+About=Sobre o
+Delete=Apagar
+Warning=Aviso
+WordOr=ou
+WordAnd=e
+
+MenuShow=Mostrar (&W)
+MenuShortCut=Atalhos (&S)
+MenuConfig=Configurar (&C)
+MenuAbout=Sobre (&A)
+MenuClose=Fechar (&X)
+
+BtnOK=OK
+BtnCancel=Cancelar
+BtnReset=Restaurar
+BtnHelp=Ajuda
+BtnTest=Testar
+BtnAdd=Adicionar
+BtnEdit=Editar
+BtnDelete=Apagar
+BtnPathConvert=Converter Caminho
+BtnValidate=Validar
+BtnClose=Fechar
+
+ShortCut=Atalho
+Name=Nome
+ParamType=Tipo de parâmetro
+CommandLine=Comando
+CanNotExecute=Não foi possível abrir "%s %s" .
+
+[ALTRunForm]
+Started=%s %s já está aberto
+PressKeyToShowMe=Você pode clicar em %s para exibir-me
+MainHint=%s %s%s[HotKey = %s]
+ShowMeByHotKey=Para exibir-me, basta usar o atalho % .
+NoItemAndAdd=O item não "%s" não existe. Deseja criar um atalho?
+HotKeyError=O atalho não pode ser "%s" .
+CMDLine=CMD=
+RunNum=Tecle ALT+%s ou CTRL+%s para executar o atalho
+KeyToAdd=Tecle ENTER para adicionar este atalho
+KeyToOpenFolder=Tecle CTRL+D para ABRIR A PASTA deste atalho
+KeyToRun=Tecle ENTER ou SPACE para EXECUTAR atalho
+AutoRunWhenStart=Quer mesmo que eu seja aberto com o Windows?
+AddToSendToMenu=Quer mesmo adicionar-me ao menu de comando Enviar para?
+RestartMeInfo=O ALTRun precisa ser fechado e reaberto imediatamente para que algumas modificações na configuração sejam efetivadas.
+CleanConfirm=Quer mesmo desativar minha execução automática com o sistema e remover-me do menu Enviar para?
+RelativePathSuggestion=Quer mesmo substituir o caminho absoluto pelo relativo? É melhor, caso você use o programa como portátil.
+GetFileNameFail=Não consegui obter o nome do arquivo!
+ShortCutExisted=Já existe um atalho com esse nome [%s (%s) = %s]. Deseja substituí-lo?
+Congratulations=Parabéns! Você executou o programa %d vezes!
+BlankLineAdded=Adicionar uma linha vazia.
+
+BtnShortCutHint=Para abrir o Gestor de Atalhos, tecle ALT+S
+BtnConfigHint=Para abrir o Gestor de Configuração, tecle ALT+C
+BtnCloseHint=Para ocultar-me-, tecle ESC
+EdtShortCutHint=Para executar atalho, digite-o aqui e tecle ENTER
+
+HintList_0=Para criar um novo atalho, tecle INSERT
+HintList_1=Para renomear o atalho atual, tecle F2
+HintList_2=Para apagar o atalho atual, tecle DELETE
+HintList_3=Para ver o painel Sobre..., tecle F1
+HintList_4=Para ocultar este painel, tecle ESC
+HintList_5=Digite "b" para pesquisar no Baidu
+HintList_6=Digite "g" para pesquisar no Google
+HintList_7=Digite "s" para procurar MP3 no Sogou
+HintList_8=Digite "zd" para pesquisar no Zhidao
+HintList_9=Para exibir o Painel de Configuração, tecle T+C
+HintList_10=Para abrir a pasta de um atalho, tecle CTRL+D
+HintList_11=Se quiser, desative as dicas na configuração
+HintList_12=Se quiser, desative a linha de comando na configuração
+HintList_13=Não deixe de fazer uma cópia da lista de atalhos
+HintList_14=Para copiar comando no Clipboard, tecle CTRL+C
+HintList_15=Para executar o atual, tecle SPACE ou ENTER
+HintList_16=Digite " ; " se quiser executar o 2º atalho da lista
+HintList_17=Digite " ' " se quiser executar o 3º atalho da lista
+HintList_18=Para exibir o último executado, tecle CTRL+L
+HintList_19=Para selecionar o atalho seguinte, tecle TAB
+HintList_20=Para selecionar o atalho anterior, tecle Shift+TAB
+HintList_21=Digite "cb" para pesquisar o Clipboard no Baidu
+HintList_22=Digite "cg" para pesquisar o Clipboard no Google
+HintList_23=Para mudar de atalho, use a esfera do mouse
+HintList_24=Para executar o atalho atual, use o botão do meio
+
+[ConfigForm]
+PageConfig=Principal
+PageHotKey=Atalho do Painel de Execução
+PageFont=Fontes
+PageForm=Painel de Execução de Atalhos
+PageLang=Idioma
+
+ConfigFormCaption=Configuração do ALTRun
+ResetAllConfig=Quer mesmo restaurar a configuração padronizada do programa?
+ResetAllFonts=Quer mesmo restaurar as fontes e cores originais do ALTRun?
+
+LblHotKey1=Atalho principal
+LblHotKey2=Atalho secundário
+LblTitleFont=Do nome do painel de atalhos
+LblTitleSample=Prévia do nome
+LblKeywordFont=Dos nomes dos atalhos
+LblKeywordSample=Prévia dos nomes
+LblListFont=Da lista de atalhos
+LblListSample=Prévia da Lista
+LblListFormat=Formato da Lista
+LblResetFont=Restaurar as fontes
+LblFormatSample=Prévia do Formato
+LblListFormatSample=Prévia da lista de atalhos
+LblFormAlphaColor=Cor da transparência do atalho
+LblFormAlpha=Transparência do painel
+lblRoundBorderRadius=Arredondamento das bordas
+lblFormWidth=Largura do painel (em pixels)
+LblBackGroundImage=Imagem de fundo
+LblAlphaHint=A modificação será efetivada na próxima abertura do ALTRun
+LblLanguage=Idioma
+LblLanguageHint=A mudança de idioma será efetivada ao se recarregar o ALTRun
+LblHotKeyHint=É possível usar teclas de atalho alternativas para exibir o painel
+LblHotKeyHint1=Aperte um grupo de teclas ao mesmo tempo para escolher o atalho; este será o principal.
+LblHotKeyHint2=Aperte um grupo de teclas ao mesmo tempo para escolher o atalho; este será o secundário. Você pode teclar DELETE para desabilitar o atalho secundário.
+
+BtnModifyTitleFont=Alterar
+BtnModifyKeywordFont=Alterar
+BtnModifyListFont=Alterar
+BtnResetAllFonts=Restaurar todas
+
+ConfigList_0=Carregar com o Windows
+ConfigList_1=Adicionar o comando do ALTRun ao menu Enviar para
+ConfigList_2=Habilitar a função de Expressão Regular (filtro = *, ?)
+ConfigList_3=Habilitar correspondência aleatória
+ConfigList_4=Habilitar o uso das teclas de número
+ConfigList_5=Índice = 0, 1, ..., 8, 9
+ConfigList_6=Lembrar apenas a última correspondência de atalho
+ConfigList_7=Exibir as dicas
+ConfigList_8=Exibir a linha de comando
+ConfigList_9=Exibir aviso de execução
+ConfigList_10=Exibir apenas os dez primeiros atalhos no painel
+ConfigList_11=Tocar áudio de aviso de exibição do painel
+ConfigList_12=Fechar o ALTRun ao executar atalho
+ConfigList_13=Exibir capa no ALTRun
+ConfigList_14=Exibir o painel de execução de atalhos ao abrir o ALTRun
+ConfigList_15=Exibir o ícone do ALTRun na Área de Notificação
+ConfigList_16=Exibir o botão do Gestor de Atalhos
+ConfigList_17=Exibir o botão de configuração
+ConfigList_18=Exibir o botão de fechar
+ConfigList_19=Executar na correspondência dos primeiros caracteres digitados
+
+ConfigDescList_0=Se marcada, o ALTRun será sempre carregado com o Windows
+ConfigDescList_1=Se marcada, será incluído um comando de criação de atalho no menu Enviar para, do Windows
+ConfigDescList_2=Se marcada, o uso de filtros será habilitado (tais como *.?)
+ConfigDescList_3=Se DESMARCADA, o atalho da lista que apresentar o primeiro caracter digitado será executado, independemente da posição deste no atalho
+ConfigDescList_4=Se marcada, será possível digitar algarismos de 0 a 9 para executar atalhos
+ConfigDescList_5=Se DESMARCADA, o Índice será 1, 2, ..., 9, 0
+ConfigDescList_6=Se marcada, será memorizado na lista do painel de atalhos recém-usados apenas o último executado
+ConfigDescList_7=Se marcada, serão exibidas dicas no painel de execução de atalhos
+ConfigDescList_8=Se marcada, o aviso da linha de comando é exibido na tela
+ConfigDescList_9=Se marcada, será exibido, na Área de Notificação, o balão de aviso de abertura do ALTRun
+ConfigDescList_10=Se marcada, serão exibidos apenas os primeiros dez atalhos da lista
+ConfigDescList_11=Se marcada, será tocado um áudio de aviso de exibição do painel de execução de atalhos
+ConfigDescList_12=Se marcada, o ALTRun será fechado ao se executar um atalho
+ConfigDescList_13=Se MARCADA, a capa do ALTRun será desabilitada
+ConfigDescList_14=Se marcada, será exibido o painel de execução de atalhos ao se carregar o ALTRun
+ConfigDescList_15=Se marcada, será exibido o ícone do ALTRun na Área de Notificação, perto do relógio do Windows
+ConfigDescList_16=Se marcada, será exibido o botão do Gestor de Atalhos
+ConfigDescList_17=Se marcada, será exibido o botão de configuração
+ConfigDescList_18=Se marcada, será exibido o botão de fechamento do ALTRun
+ConfigDescList_19=Se marcada, será executado o atalho que apresentar os primeiros caracteres digitados pelo usuário
+
+[InvalidForm]
+InvalidFormCaption=Lista de Atalhos Inválidos
+CommandLineEempty=A linha de comando está vazia!
+
+[ShortCutManForm]
+ShortCutManFormCaption=Gestor de Atalhos
+NoInvalidShortCut=Não achei nenhum atalho inválido!
+DeleteBlankLine=Quer mesmo apagar a linha vazia?
+DeleteConfirm=Quer mesmo apagar %s(%s)?
+ValidateConfirm=A validação removerá alguns atalhos inválidos (NEM TODOS os inválidos será verificados). Ainda assim, quer mesmo fazer isso?
+PathConvertConfirm=Quer mesmo mudar os caminhos absolutos de todos os atalhos para caminhos relativos? Somente atalhos existentes na pasta do ALTRun serão processados.%sSIM: Caminho absoluto => Caminho relativo %sNão: Caminho relativo => Caminho absoluto
+ConvertFinished=Feita a conversão (Total = %d)
+
+BtnAddHint=Criar atalho
+BtnEditHint=Editar este atalho
+BtnDeleteHint=Apagar este atalho
+BtnPathConvertHint=Converter caminhos relativos para caminhos absolutos
+BtnValidateHint=Validar todos os atalhos e remover os inválidos
+BtnHelpHint=Abrir a Ajuda
+BtnCloseHint=Salvar e fechar
+BtnCancelHint=Fechar sem salvar
+
+[ShortCutForm]
+ShortCutFormCaption=Atalho
+GrpShortCut=Atalho
+BtnFile=Arquivo
+BtnDir=Pasta
+GrpParamType=Parâmetro
+LblEdtCommandLineHint="%p" na Linha de Comando é substituído pelo parâmetro, e "%c" é substituído pelo texto do Clipboard
+ParamType_0=Sem parâmetro
+ParamType_1=Parêmtro sem codificação
+ParamType_2=Parâmetro com codificação de URL (para pesquisar no Baidu, por ex.)
+ParamType_3=Parâmetro com codificação UTF-8 (para pesquisar no Google/Yahoo, por ex.)
+SelectDir=Por favor, escolha uma pasta
+ParamConfirm=Talvez tenha esquecido de escolher o tipo de parâmetro. Deseja voltar para fazer isso?
+ReplaceConfirm=Quer mesmo substituir "%s" por "%s"?
+ReplaceShortCutConfirm=Confirmar Substituição de Atalho
+ReplaceNameConfirm=Confirmar Substituição de Nome
+NameCanNotInclude=O nome não pode conter "," .
+
+[AboutForm]
+Statistics=Até agora, você executou %d atalhos...
+
+[DefaultShortCutName]
+Default_ShortCut_Name_0=Meu Computador
+Default_ShortCut_Name_1=Explorer
+Default_ShortCut_Name_2=Meus Documentos
+Default_ShortCut_Name_3=Internet Explorer
+Default_ShortCut_Name_4=Bloco de Notas
+Default_ShortCut_Name_5=MS Paint
+Default_ShortCut_Name_6=Janela de Comando DOS
+Default_ShortCut_Name_7=Calculadora
+Default_ShortCut_Name_8=Exibir a Área de Trabalho
+Default_ShortCut_Name_9=Configuração do Sistema
+Default_ShortCut_Name_10=Editor do Registro
+Default_ShortCut_Name_11=Meu Endereço IP
+Default_ShortCut_Name_12=Gerenciador de Dispositivos
+Default_ShortCut_Name_13=Gerenciador de Tarefas
+Default_ShortCut_Name_14=Desligar o Computador
+Default_ShortCut_Name_15=Recarregar o sistema
+Default_ShortCut_Name_16=Pasta do Windows
+Default_ShortCut_Name_17=Pasta System32
+Default_ShortCut_Name_18=Pasta Arquivos de Programas
+Default_ShortCut_Name_19=Pasta de Recentes
+Default_ShortCut_Name_20=Buscador online Baidu
+Default_ShortCut_Name_21=Buscador online do Google
+Default_ShortCut_Name_22=Buscador online Sogou MP3
+Default_ShortCut_Name_23=Buscador online Baidu Zhidao
+Default_ShortCut_Name_24=Buscador online VeryCD
+Default_ShortCut_Name_25=Buscador online Yahoo
+Default_ShortCut_Name_26=Visitar a Página de Atualização do ALTRun
+Default_ShortCut_Name_27=Editar a configuração do ALTRun
+Default_ShortCut_Name_28=Adicionar/Remover Programas
+Default_ShortCut_Name_29=Painel de Controle
+Default_ShortCut_Name_30=Conexão de Internet
+Default_ShortCut_Name_31=Propriedades do Sistema
+Default_ShortCut_Name_32=Executar
+Default_ShortCut_Name_33=Pesquisar no Baidu o texto da Área de Transferência
+Default_ShortCut_Name_34=Pesquisar no Google o texto da Área de Transferência
+Default_ShortCut_Name_35=Só mostrar a janela
+Default_ShortCut_Name_36=Ocultar a janela
+Default_ShortCut_Name_37=Desocultar a janela

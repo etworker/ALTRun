@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="RegExpr">
+  <pointer name="PRegExprChar" alias="PAnsiChar" namespace="System" type="Char" indircnt="1" />
+  <type name="RegExprString" type="AnsiString" />
+  <type name="REChar" type="Char" />
+  <type name="TREOp" type="Char" />
+  <pointer name="PREOp" type="Char" indircnt="1" />
+  <pointer name="PRENextOff" type="Integer" indircnt="1" />
+  <pointer name="PREBracesArg" type="Integer" indircnt="1" />
+  <const name="REOpSz" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="RENextOffSz" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="REBracesArgSz" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="EscChar" type="Char">
+    <value>
+      $5C
+    </value>
+  </const>
+  <const name="RegExprModifierI" type="Boolean" visibility="public" />
+  <const name="RegExprModifierR" type="Boolean" visibility="public" />
+  <const name="RegExprModifierS" type="Boolean" visibility="public" />
+  <const name="RegExprModifierG" type="Boolean" visibility="public" />
+  <const name="RegExprModifierM" type="Boolean" visibility="public" />
+  <const name="RegExprModifierX" type="Boolean" visibility="public" />
+  <const name="RegExprSpaceChars" type="string" visibility="public" />
+  <const name="RegExprWordChars" type="string" visibility="public" />
+  <const name="RegExprLineSeparators" type="string" visibility="public" />
+  <const name="RegExprLinePairedSeparator" type="string" visibility="public" />
+  <const name="NSUBEXP" type="Integer">
+    <value>
+      $F
+    </value>
+  </const>
+  <const name="NSUBEXPMAX" type="Integer">
+    <value>
+      $FF
+    </value>
+  </const>
+  <const name="MaxBracesArg" type="Integer">
+    <value>
+      $7FFFFFFE
+    </value>
+  </const>
+  <const name="LoopStackMax" type="Integer">
+    <value>
+      $A
+    </value>
+  </const>
+  <const name="TinySetLen" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <pointer name="PSetOfREChar" type="TSetOfREChar" indircnt="1" />
+  <set name="TSetOfREChar" type="Char" />
+  <class name="TRegExpr">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="startp" visibility="private">
+        <array name="startp" low="0" high="14">
+          <element type="PAnsiChar" />
+        </array>
+      </field>
+      <field name="endp" visibility="private">
+        <array name="endp" low="0" high="14">
+          <element type="PAnsiChar" />
+        </array>
+      </field>
+      <field name="LoopStack" visibility="private">
+        <array name="LoopStack" low="1" high="10">
+          <element type="Integer" />
+        </array>
+      </field>
+      <field name="LoopStackIdx" type="Integer" visibility="private" />
+      <field name="regstart" type="Char" visibility="private" />
+      <field name="reganch" type="Char" visibility="private" />
+      <field name="regmust" type="PAnsiChar" visibility="private" />
+      <field name="regmlen" type="Integer" visibility="private" />
+      <field name="FirstCharSet" type="TSetOfREChar" visibility="private" />
+      <field name="reginput" type="PAnsiChar" visibility="private" />
+      <field name="fInputStart" type="PAnsiChar" visibility="private" />
+      <field name="fInputEnd" type="PAnsiChar" visibility="private" />
+      <field name="regparse" type="PAnsiChar" visibility="private" />
+      <field name="regnpar" type="Integer" visibility="private" />
+      <field name="regdummy" type="Char" visibility="private" />
+      <field name="regcode" type="PAnsiChar" visibility="private" />
+      <field name="regsize" type="Integer" visibility="private" />
+      <field name="regexpbeg" type="PAnsiChar" visibility="private" />
+      <field name="fExprIsCompiled" type="Boolean" visibility="private" />
+      <field name="programm" type="PAnsiChar" visibility="private" />
+      <field name="fExpression" type="PAnsiChar" visibility="private" />
+      <field name="fInputString" type="PAnsiChar" visibility="private" />
+      <field name="fLastError" type="Integer" visibility="private" />
+      <field name="fModifiers" type="Integer" visibility="private" />
+      <field name="fCompModifiers" type="Integer" visibility="private" />
+      <field name="fProgModifiers" type="Integer" visibility="private" />
+      <field name="fSpaceChars" type="string" visibility="private" />
+      <field name="fWordChars" type="string" visibility="private" />
+      <field name="fInvertCase" type="TRegExprInvertCaseFunction" visibility="private" />
+      <field name="fLineSeparators" type="string" visibility="private" />
+      <field name="fLinePairedSeparatorAssigned" type="Boolean" visibility="private" />
+      <field name="fLinePairedSeparatorHead" type="Char" visibility="private" />
+      <field name="fLinePairedSeparatorTail" type="Char" visibility="private" />
+      <field name="fLineSeparatorsSet" visibility="private">
+        <set name="fLineSeparatorsSet" type="Char" />
+      </field>
+      <procedure name="InvalidateProgramm" visibility="private">
+      </procedure>
+      <function name="IsProgrammOk" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetExpression" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="SetExpression" visibility="private">
+        <parameters>
+          <parameter name="s" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetModifierStr" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="ParseModifiersStr" visibility="private" procflags="class">
+        <parameters>
+          <parameter name="AModifiers" type="string" paramflags="const" />
+          <parameter name="AModifiersInt" type="Integer" paramflags="var" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="SetModifierStr" visibility="private">
+        <parameters>
+          <parameter name="AModifiers" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetModifier" visibility="private">
+        <parameters>
+          <parameter name="AIndex" type="Integer" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="SetModifier" visibility="private">
+        <parameters>
+          <parameter name="AIndex" type="Integer" />
+          <parameter name="ASet" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="Error" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="AErrorID" type="Integer" />
+        </parameters>
+      </procedure>
+      <function name="CompileRegExpr" visibility="private">
+        <parameters>
+          <parameter name="exp" type="PAnsiChar" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="Tail" visibility="private">
+        <parameters>
+          <parameter name="p" type="PAnsiChar" />
+          <parameter name="val" type="PAnsiChar" />
+        </parameters>
+      </procedure>
+      <procedure name="OpTail" visibility="private">
+        <parameters>
+          <parameter name="p" type="PAnsiChar" />
+          <parameter name="val" type="PAnsiChar" />
+        </parameters>
+      </procedure>
+      <function name="EmitNode" visibility="private">
+        <parameters>
+          <parameter name="op" type="Char" />
+          <retval type="PAnsiChar" />
+        </parameters>
+      </function>
+      <procedure name="EmitC" visibility="private">
+        <parameters>
+          <parameter name="b" type="Char" />
+        </parameters>
+      </procedure>
+      <procedure name="InsertOperator" visibility="private">
+        <parameters>
+          <parameter name="op" type="Char" />
+          <parameter name="opnd" type="PAnsiChar" />
+          <parameter name="sz" type="Integer" />
+        </parameters>
+      </procedure>
+      <function name="ParseReg" visibility="private">
+        <parameters>
+          <parameter name="paren" type="Integer" />
+          <parameter name="flagp" type="Integer" paramflags="var" />
+          <retval type="PAnsiChar" />
+        </parameters>
+      </function>
+      <function name="ParseBranch" visibility="private">
+        <parameters>
+          <parameter name="flagp" type="Integer" paramflags="var" />
+          <retval type="PAnsiChar" />
+        </parameters>
+      </function>
+      <function name="ParsePiece" visibility="private">
+        <parameters>
+          <parameter name="flagp" type="Integer" paramflags="var" />
+          <retval type="PAnsiChar" />
+        </parameters>
+      </function>
+      <function name="ParseAtom" visibility="private">
+        <parameters>
+          <parameter name="flagp" type="Integer" paramflags="var" />
+          <retval type="PAnsiChar" />
+        </parameters>
+      </function>
+      <function name="GetCompilerErrorPos" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="FillFirstCharSet" visibility="private">
+        <parameters>
+          <parameter name="prog" type="PAnsiChar" />
+        </parameters>
+      </procedure>
+      <function name="regrepeat" visibility="private">
+        <parameters>
+          <parameter name="p" type="PAnsiChar" />
+          <parameter name="AMax" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="regnext" visibility="private">
+        <parameters>
+          <parameter name="p" type="PAnsiChar" />
+          <retval type="PAnsiChar" />
+        </parameters>
+      </function>
+      <function name="MatchPrim" visibility="private">
+        <parameters>
+          <parameter name="prog" type="PAnsiChar" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ExecPrim" visibility="private">
+        <parameters>
+          <parameter name="AOffset" type="Integer" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="DumpOp" visibility="private">
+        <parameters>
+          <parameter name="op" type="Char" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetSubExprMatchCount" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetMatchPos" visibility="private">
+        <parameters>
+          <parameter name="Idx" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetMatchLen" visibility="private">
+        <parameters>
+          <parameter name="Idx" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetMatch" visibility="private">
+        <parameters>
+          <parameter name="Idx" type="Integer" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetInputString" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="SetInputString" visibility="private">
+        <parameters>
+          <parameter name="AInputString" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetLineSeparators" visibility="private">
+        <parameters>
+          <parameter name="AStr" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetLinePairedSeparator" visibility="private">
+        <parameters>
+          <parameter name="AStr" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetLinePairedSeparator" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <constructor name="Create" visibility="public">
+        <parameters>
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <function name="VersionMajor" visibility="public" procflags="class">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="VersionMinor" visibility="public" procflags="class">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <property name="Expression" visibility="public" read="GetExpression" write="SetExpression" type="string" />
+      <property name="ModifierStr" visibility="public" read="GetModifierStr" write="SetModifierStr" type="string" />
+      <property name="ModifierI" visibility="public" read="GetModifier" write="SetModifier" type="Boolean" index="1" />
+      <property name="ModifierR" visibility="public" read="GetModifier" write="SetModifier" type="Boolean" index="2" />
+      <property name="ModifierS" visibility="public" read="GetModifier" write="SetModifier" type="Boolean" index="3" />
+      <property name="ModifierG" visibility="public" read="GetModifier" write="SetModifier" type="Boolean" index="4" />
+      <property name="ModifierM" visibility="public" read="GetModifier" write="SetModifier" type="Boolean" index="5" />
+      <property name="ModifierX" visibility="public" read="GetModifier" write="SetModifier" type="Boolean" index="6" />
+      <function name="Exec" visibility="public">
+        <parameters>
+          <parameter name="AInputString" type="string" paramflags="const" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ExecNext" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ExecPos" visibility="public">
+        <parameters>
+          <parameter name="AOffset" type="Integer" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <property name="InputString" visibility="public" read="GetInputString" write="SetInputString" type="string" />
+      <function name="Substitute" visibility="public">
+        <parameters>
+          <parameter name="ATemplate" type="string" paramflags="const" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="Split" visibility="public">
+        <parameters>
+          <parameter name="AInputStr" type="string" />
+          <parameter name="APieces" type="TStrings" />
+        </parameters>
+      </procedure>
+      <function name="Replace" visibility="public">
+        <parameters>
+          <parameter name="AInputStr" type="string" />
+          <parameter name="AReplaceStr" type="string" paramflags="const" />
+          <parameter name="AUseSubstitution" type="Boolean" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="ReplaceEx" visibility="public">
+        <parameters>
+          <parameter name="AInputStr" type="string" />
+          <parameter name="AReplaceFunc" type="TRegExprReplaceFunction" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <property name="SubExprMatchCount" visibility="public" read="GetSubExprMatchCount" type="Integer" />
+      <property name="MatchPos" visibility="public" read="GetMatchPos" type="Integer" />
+      <property name="MatchLen" visibility="public" read="GetMatchLen" type="Integer" />
+      <property name="Match" visibility="public" read="GetMatch" type="string" />
+      <function name="LastError" visibility="public">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="ErrorMsg" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="AErrorID" type="Integer" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <property name="CompilerErrorPos" visibility="public" read="GetCompilerErrorPos" type="Integer" />
+      <property name="SpaceChars" visibility="public" read="fSpaceChars" write="fSpaceChars" type="string" />
+      <property name="WordChars" visibility="public" read="fWordChars" write="fWordChars" type="string" />
+      <property name="LineSeparators" visibility="public" read="fLineSeparators" write="SetLineSeparators" type="string" />
+      <property name="LinePairedSeparator" visibility="public" read="GetLinePairedSeparator" write="SetLinePairedSeparator" type="string" />
+      <function name="InvertCaseFunction" visibility="public" procflags="class">
+        <parameters>
+          <parameter name="Ch" type="Char" paramflags="const" />
+          <retval type="Char" />
+        </parameters>
+      </function>
+      <event name="InvertCase" visibility="public" read="fInvertCase" write="fInvertCase" type="Char" />
+      <procedure name="Compile" visibility="public">
+      </procedure>
+      <function name="Dump" visibility="public">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+    </members>
+  </class>
+  <class name="ERegExpr">
+    <ancestor name="Exception" namespace="SysUtils">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="CreateFmt" visibility="public">
+      </methodref>
+      <methodref name="CreateRes" visibility="public">
+      </methodref>
+      <methodref name="CreateRes" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmt" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmt" visibility="public">
+      </methodref>
+      <methodref name="CreateHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateFmtHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmtHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmtHelp" visibility="public">
+      </methodref>
+      <propertyref name="HelpContext" visibility="public">
+      </propertyref>
+      <propertyref name="Message" visibility="public">
+      </propertyref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="ErrorCode" type="Integer" visibility="public" />
+      <field name="CompilerErrorPos" type="Integer" visibility="public" />
+    </members>
+  </class>
+  <variable name="RegExprInvertCaseFunction" type="TRegExprInvertCaseFunction" visibility="public" />
+  <function name="ExecRegExpr" visibility="public">
+    <parameters>
+      <parameter name="ARegExpr" type="string" paramflags="const" />
+      <parameter name="AInputStr" type="string" paramflags="const" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <procedure name="SplitRegExpr" visibility="public">
+    <parameters>
+      <parameter name="ARegExpr" type="string" paramflags="const" />
+      <parameter name="AInputStr" type="string" paramflags="const" />
+      <parameter name="APieces" type="TStrings" />
+    </parameters>
+  </procedure>
+  <function name="ReplaceRegExpr" visibility="public">
+    <parameters>
+      <parameter name="ARegExpr" type="string" paramflags="const" />
+      <parameter name="AInputStr" type="string" paramflags="const" />
+      <parameter name="AReplaceStr" type="string" paramflags="const" />
+      <parameter name="AUseSubstitution" type="Boolean" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="QuoteRegExprMetaChars" visibility="public">
+    <parameters>
+      <parameter name="AStr" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="RegExprSubExpressions" visibility="public">
+    <parameters>
+      <parameter name="ARegExpr" type="string" paramflags="const" />
+      <parameter name="ASubExprs" type="TStrings" />
+      <parameter name="AExtendedSyntax" type="Boolean" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+</namespace>

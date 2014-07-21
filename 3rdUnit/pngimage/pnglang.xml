@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="pnglang">
+  <const name="EPngInvalidCRCText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image is not valid because it contains invalid pieces of data (crc error)
+    </value>
+  </const>
+  <const name="EPNGInvalidIHDRText" type="string" resourcestring="true">
+    <value>
+      The &quot;Portable Network Graphics&quot; image could not be loaded because one of its main piece of data (ihdr) might be corrupted
+    </value>
+  </const>
+  <const name="EPNGMissingMultipleIDATText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image is invalid because it has missing image parts.
+    </value>
+  </const>
+  <const name="EPNGZLIBErrorText" type="string" resourcestring="true">
+    <value>
+      Could not decompress the image because it contains invalid compressed data.
+ Description: 
+    </value>
+  </const>
+  <const name="EPNGInvalidPaletteText" type="string" resourcestring="true">
+    <value>
+      The &quot;Portable Network Graphics&quot; image contains an invalid palette.
+    </value>
+  </const>
+  <const name="EPNGInvalidFileHeaderText" type="string" resourcestring="true">
+    <value>
+      The file being readed is not a valid &quot;Portable Network Graphics&quot; image because it contains an invalid header. This file may be corruped, try obtaining it again.
+    </value>
+  </const>
+  <const name="EPNGIHDRNotFirstText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image is not supported or it might be invalid.
+(IHDR chunk is not the first)
+    </value>
+  </const>
+  <const name="EPNGNotExistsText" type="string" resourcestring="true">
+    <value>
+      The png file could not be loaded because it does not exists.
+    </value>
+  </const>
+  <const name="EPNGSizeExceedsText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image is not supported because either it's width or height exceeds the maximum size, which is 65535 pixels length.
+    </value>
+  </const>
+  <const name="EPNGUnknownPalEntryText" type="string" resourcestring="true">
+    <value>
+      There is no such palette entry.
+    </value>
+  </const>
+  <const name="EPNGMissingPaletteText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; could not be loaded because it uses a color table which is missing.
+    </value>
+  </const>
+  <const name="EPNGUnknownCriticalChunkText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image contains an unknown critical part which could not be decoded.
+    </value>
+  </const>
+  <const name="EPNGUnknownCompressionText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image is encoded with an unknown compression scheme which could not be decoded.
+    </value>
+  </const>
+  <const name="EPNGUnknownInterlaceText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image uses an unknown interlace scheme which could not be decoded.
+    </value>
+  </const>
+  <const name="EPNGCannotAssignChunkText" type="string" resourcestring="true">
+    <value>
+      The chunks must be compatible to be assigned.
+    </value>
+  </const>
+  <const name="EPNGUnexpectedEndText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image is invalid because the decoder found an unexpected end of the file.
+    </value>
+  </const>
+  <const name="EPNGNoImageDataText" type="string" resourcestring="true">
+    <value>
+      This &quot;Portable Network Graphics&quot; image contains no data.
+    </value>
+  </const>
+  <const name="EPNGCannotChangeSizeText" type="string" resourcestring="true">
+    <value>
+      The &quot;Portable Network Graphics&quot; image can not be resize by changing width and height properties. Try assigning the image from a bitmap.
+    </value>
+  </const>
+  <const name="EPNGCannotAddChunkText" type="string" resourcestring="true">
+    <value>
+      The program tried to add a existent critical chunk to the current image which is not allowed.
+    </value>
+  </const>
+  <const name="EPNGCannotAddInvalidImageText" type="string" resourcestring="true">
+    <value>
+      It's not allowed to add a new chunk because the current image is invalid.
+    </value>
+  </const>
+  <const name="EPNGCouldNotLoadResourceText" type="string" resourcestring="true">
+    <value>
+      The png image could not be loaded from the resource ID.
+    </value>
+  </const>
+  <const name="EPNGOutMemoryText" type="string" resourcestring="true">
+    <value>
+      Some operation could not be performed because the system is out of resources. Close some windows and try again.
+    </value>
+  </const>
+  <const name="EPNGCannotChangeTransparentText" type="string" resourcestring="true">
+    <value>
+      Setting bit transparency color is not allowed for png images containing alpha value for each pixel (COLOR_RGBALPHA and COLOR_GRAYSCALEALPHA)
+    </value>
+  </const>
+  <const name="EPNGHeaderNotPresentText" type="string" resourcestring="true">
+    <value>
+      This operation is not valid because the current image contains no valid header.
+    </value>
+  </const>
+</namespace>

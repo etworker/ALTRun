@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="pngzlib">
+  <struct name="TZStreamRec" packed="true">
+    <field name="next_in" type="PAnsiChar" visibility="public" />
+    <field name="avail_in" type="Integer" visibility="public" />
+    <field name="total_in" type="Integer" visibility="public" />
+    <field name="next_out" type="PAnsiChar" visibility="public" />
+    <field name="avail_out" type="Integer" visibility="public" />
+    <field name="total_out" type="Integer" visibility="public" />
+    <field name="msg" type="PAnsiChar" visibility="public" />
+    <field name="internal" type="Pointer" visibility="public" />
+    <field name="zalloc" type="TAlloc" visibility="public" />
+    <field name="zfree" type="TFree" visibility="public" />
+    <field name="AppData" type="Pointer" visibility="public" />
+    <field name="data_type" type="Integer" visibility="public" />
+    <field name="adler" type="Integer" visibility="public" />
+    <field name="reserved" type="Integer" visibility="public" />
+  </struct>
+  <const name="zlib_version" type="string">
+    <value>
+      1.1.4
+    </value>
+  </const>
+  <const name="Z_NO_FLUSH" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="Z_PARTIAL_FLUSH" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="Z_SYNC_FLUSH" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="Z_FULL_FLUSH" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <const name="Z_FINISH" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="Z_OK" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="Z_STREAM_END" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="Z_NEED_DICT" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="Z_ERRNO" type="Integer">
+    <value>
+      $FFFFFFFF
+    </value>
+  </const>
+  <const name="Z_STREAM_ERROR" type="Integer">
+    <value>
+      $FFFFFFFE
+    </value>
+  </const>
+  <const name="Z_DATA_ERROR" type="Integer">
+    <value>
+      $FFFFFFFD
+    </value>
+  </const>
+  <const name="Z_MEM_ERROR" type="Integer">
+    <value>
+      $FFFFFFFC
+    </value>
+  </const>
+  <const name="Z_BUF_ERROR" type="Integer">
+    <value>
+      $FFFFFFFB
+    </value>
+  </const>
+  <const name="Z_VERSION_ERROR" type="Integer">
+    <value>
+      $FFFFFFFA
+    </value>
+  </const>
+  <const name="Z_NO_COMPRESSION" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="Z_BEST_SPEED" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="Z_BEST_COMPRESSION" type="Integer">
+    <value>
+      $9
+    </value>
+  </const>
+  <const name="Z_DEFAULT_COMPRESSION" type="Integer">
+    <value>
+      $FFFFFFFF
+    </value>
+  </const>
+  <const name="Z_FILTERED" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="Z_HUFFMAN_ONLY" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="Z_DEFAULT_STRATEGY" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="Z_BINARY" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="Z_ASCII" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="Z_UNKNOWN" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="Z_DEFLATED" type="Integer">
+    <value>
+      $8
+    </value>
+  </const>
+  <const name="_z_errmsg" type="Array" visibility="public" />
+  <function name="deflateInit_" visibility="public">
+    <parameters>
+      <parameter name="strm" type="TZStreamRec" paramflags="var" />
+      <parameter name="level" type="Integer" />
+      <parameter name="version" type="PAnsiChar" />
+      <parameter name="recsize" type="Integer" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="deflate" visibility="public">
+    <parameters>
+      <parameter name="strm" type="TZStreamRec" paramflags="var" />
+      <parameter name="flush" type="Integer" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="deflateEnd" visibility="public">
+    <parameters>
+      <parameter name="strm" type="TZStreamRec" paramflags="var" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="inflateEnd" visibility="public">
+    <parameters>
+      <parameter name="strm" type="TZStreamRec" paramflags="var" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="inflateInit_" visibility="public">
+    <parameters>
+      <parameter name="strm" type="TZStreamRec" paramflags="var" />
+      <parameter name="version" type="PAnsiChar" />
+      <parameter name="recsize" type="Integer" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="inflate" visibility="public">
+    <parameters>
+      <parameter name="strm" type="TZStreamRec" paramflags="var" />
+      <parameter name="flush" type="Integer" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="adler32" visibility="public">
+    <parameters>
+      <parameter name="adler" type="Integer" />
+      <parameter name="buf" type="PAnsiChar" />
+      <parameter name="len" type="Integer" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+</namespace>

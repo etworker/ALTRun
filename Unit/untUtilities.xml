@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="untUtilities">
+  <const name="SC_DRAGMOVE" type="Integer" visibility="public" />
+  <function name="SetLayeredWindowAttributes" visibility="public" callconv="stdcall">
+    <parameters>
+      <parameter name="hwnd" type="HWND" />
+      <parameter name="crKey" type="Integer" />
+      <parameter name="bAlpha" type="Byte" />
+      <parameter name="dwFlags" type="Integer" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <variable name="MutexHandle" type="Cardinal" />
+  <variable name="LogFileName" type="string" />
+  <function name="IsRunningInstance" visibility="public">
+    <parameters>
+      <parameter name="MutexName" type="string" paramflags="const" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="ReduceWorkingSize" visibility="public">
+    <parameters>
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="SetAutoRun" visibility="public">
+    <parameters>
+      <parameter name="ApplicationName" type="string" />
+      <parameter name="ExecutablePath" type="string" />
+      <parameter name="AutoRun" type="Boolean">
+        <value>
+          True
+        </value>
+      </parameter>
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="SetAutoRunInStartUp" visibility="public">
+    <parameters>
+      <parameter name="ApplicationName" type="string" />
+      <parameter name="ExecutablePath" type="string" />
+      <parameter name="AutoRun" type="Boolean">
+        <value>
+          True
+        </value>
+      </parameter>
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="GetAutoRunItemPath" visibility="public">
+    <parameters>
+      <parameter name="ApplicationName" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="GetFileModifyTime" visibility="public">
+    <parameters>
+      <parameter name="FileName" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="SetFileModifyTime" visibility="public" procflags="overload">
+    <parameters>
+      <parameter name="FileName" type="string" paramflags="const" />
+      <parameter name="AgeOfFile" type="Integer" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="SetFileModifyTime" visibility="public" procflags="overload">
+    <parameters>
+      <parameter name="FileName" type="string" paramflags="const" />
+      <parameter name="FileTime" type="TDateTime" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="CutLeftString" visibility="public">
+    <parameters>
+      <parameter name="str" type="string" />
+      <parameter name="Num" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="RemoveQuotationMark" visibility="public">
+    <parameters>
+      <parameter name="str" type="string" />
+      <parameter name="QuotationMark" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="GetFileSize" visibility="public">
+    <parameters>
+      <parameter name="FileName" type="string" paramflags="const" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <procedure name="SplitString" visibility="public">
+    <parameters>
+      <parameter name="str" type="string" />
+      <parameter name="Delimiter" type="string" />
+      <parameter name="strList" type="TStringList" paramflags="var" />
+    </parameters>
+  </procedure>
+  <function name="WriteLineToFile" visibility="public">
+    <parameters>
+      <parameter name="FileName" type="string" />
+      <parameter name="Line" type="string" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="AddMeToShortCutMenu" visibility="public">
+    <parameters>
+      <parameter name="IsAdd" type="Boolean" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="AddMeToSendTo" visibility="public">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <parameter name="IsAdd" type="Boolean" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <procedure name="PostKeyEx32" visibility="public">
+    <parameters>
+      <parameter name="key" type="Word" />
+      <parameter name="shift" type="TShiftState" paramflags="const" />
+      <parameter name="specialkey" type="Boolean" />
+    </parameters>
+  </procedure>
+  <function name="SendKeys" visibility="public">
+    <parameters>
+      <parameter name="SendKeysString" type="PAnsiChar" />
+      <parameter name="Translate" type="Boolean" />
+      <parameter name="Wait" type="Boolean" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="GetSpecialFolderDir" visibility="public">
+    <parameters>
+      <parameter name="SpecailFolderID" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="GetSendToDir" visibility="public">
+    <parameters>
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="CreateLink" visibility="public">
+    <parameters>
+      <parameter name="FileName" type="string" />
+      <parameter name="Arg" type="string" />
+      <parameter name="LinkPath" type="string" />
+      <parameter name="LinkName" type="string" />
+      <parameter name="Description" type="string" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="ResolveLink" visibility="public">
+    <parameters>
+      <parameter name="ALinkFile" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="IsNumericStr" visibility="public">
+    <parameters>
+      <parameter name="str" type="string" paramflags="const" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="GetFileListInDir" visibility="public">
+    <parameters>
+      <parameter name="List" type="TStringList" paramflags="var" />
+      <parameter name="Dir" type="string" paramflags="const" />
+      <parameter name="Ext" type="string">
+        <value>
+          *
+        </value>
+      </parameter>
+      <parameter name="IsPlusDir" type="Boolean">
+        <value>
+          True
+        </value>
+      </parameter>
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <procedure name="QuickSort" visibility="public">
+    <parameters>
+      <parameter name="SortNum" paramflags="var">
+        <array name="SortNum">
+          <element type="Integer" />
+        </array>
+      </parameter>
+      <parameter name="p" type="Integer" />
+      <parameter name="r" type="Integer" />
+    </parameters>
+  </procedure>
+  <function name="ExtractRes" visibility="public">
+    <parameters>
+      <parameter name="ResType" type="string" />
+      <parameter name="ResName" type="string" />
+      <parameter name="ResNewName" type="string" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="ReplaceEnvStr" visibility="public">
+    <parameters>
+      <parameter name="str" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="IsVista" visibility="public">
+    <parameters>
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="GetCurrentUserName" visibility="public">
+    <parameters>
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="GetDragFileCount" visibility="public">
+    <parameters>
+      <parameter name="hDrop" type="Cardinal" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="GetDragFileName" visibility="public">
+    <parameters>
+      <parameter name="hDrop" type="Cardinal" />
+      <parameter name="FileIndex" type="Integer">
+        <value>
+          $1
+        </value>
+      </parameter>
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="UnicodeEncode" visibility="public">
+    <parameters>
+      <parameter name="Str" type="string" />
+      <parameter name="CodePage" type="Integer" />
+      <retval type="WideString" />
+    </parameters>
+  </function>
+  <function name="UnicodeDecode" visibility="public">
+    <parameters>
+      <parameter name="Str" type="WideString" />
+      <parameter name="CodePage" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Gb2Big5" visibility="public">
+    <parameters>
+      <parameter name="Str" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Big52Gb" visibility="public">
+    <parameters>
+      <parameter name="Str" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Utf8Encode" visibility="public">
+    <parameters>
+      <parameter name="WS" type="WideString" paramflags="const" />
+      <retval type="UTF8String" />
+    </parameters>
+  </function>
+  <function name="GetUTF8QueryString" visibility="public">
+    <parameters>
+      <parameter name="Keyword" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="GetURLQueryString" visibility="public">
+    <parameters>
+      <parameter name="Keyword" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="FindWindowByCaption" visibility="public">
+    <parameters>
+      <parameter name="Caption" type="string" />
+      <retval type="HWND" />
+    </parameters>
+  </function>
+  <procedure name="SetClipboardText" visibility="public">
+    <parameters>
+      <parameter name="AStr" type="string" />
+    </parameters>
+  </procedure>
+  <procedure name="KillMessage" visibility="public">
+    <parameters>
+      <parameter name="Wnd" type="HWND" />
+      <parameter name="Msg" type="Integer" />
+    </parameters>
+  </procedure>
+  <function name="GetLocaleInformation" visibility="public">
+    <parameters>
+      <parameter name="LocaleFlag" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="RefreshEnvironmentVars" visibility="public">
+    <parameters>
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+</namespace>

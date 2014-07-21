@@ -1,0 +1,43 @@
+How to install the component
+----------------------------
+
+*** YOU NEED TO INSTALL THE COMPONENT BEFORE OPENING THE DEMOS IN DELPHI. ***
+
+
+If you're running Delphi 5 or later:
+
+1. Open HotKeyManager_D5.dpk (Delphi 5) or HotKeyManager_D6plus.dpk (Delphi 6
+   or later) either by doubleclicking the file or by selecting "Open Project"
+   inside Delphi. (HotKeyManager_D5.dpk may work for older Delphi versions
+   as well, but I don't know for sure. Please tell me if I'm right.)
+
+2. Click Compile, then Install.
+
+3. You may need to add the folder containing the component to your library path 
+   (select Tools -> Environment Options from the menu).
+
+4. That's it. The component should be visible in the component palette
+   in the tab called "System".
+
+
+
+If you're running Delphi versions older than ver. 5:
+
+1. Try the steps above with the HotKeyManager_D5.dpk file (it may work in
+   older versions of Delphi, but I don't know for sure. Please tell me).
+   If this doesn't work then do the following:
+
+2. Select "Install Component" from the "Component" menu item (may vary
+   depending on your Delphi version).
+
+3. A dialog displays where you must select the component to install and
+   the package to install into. I recommend creating a new package, if you
+   haven't already done so, rather than installing into the default package.
+
+4. Browse for the HotKeyManager.pas file and select OK.
+
+5. You may need to add the folder containing the component to your library path 
+   (select Tools -> Environment Options from the menu).
+
+6. That's it. The component should be visible in the component palette
+   in the tab called "System".

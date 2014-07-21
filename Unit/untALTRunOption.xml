@@ -1,0 +1,1833 @@
+ï»¿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="untALTRunOption">
+  <const name="DEBUG_MODE" type="Boolean">
+    <value>
+      False
+    </value>
+  </const>
+  <const name="DEBUG_SORT" type="Boolean">
+    <value>
+      False
+    </value>
+  </const>
+  <const name="TITLE" type="string">
+    <value>
+      ALTRun
+    </value>
+  </const>
+  <const name="ALTRUN_VERSION" type="string">
+    <value>
+      V1.46.5
+    </value>
+  </const>
+  <const name="UPGRADE_URL" type="string">
+    <value>
+      http://journeyboy.blog.sohu.com/112820379.html
+    </value>
+  </const>
+  <const name="PARAM_FLAG" type="string">
+    <value>
+      %%p
+    </value>
+  </const>
+  <const name="NEW_PARAM_FLAG" type="string">
+    <value>
+      {%%p}
+    </value>
+  </const>
+  <const name="CLIPBOARD_FLAG" type="string">
+    <value>
+      {%%c}
+    </value>
+  </const>
+  <const name="FOREGROUND_WINDOW_ID_FLAG" type="string">
+    <value>
+      {%%wd}
+    </value>
+  </const>
+  <const name="FOREGROUND_WINDOW_TEXT_FLAG" type="string">
+    <value>
+      {%%wt}
+    </value>
+  </const>
+  <const name="SHOW_MAX_FLAG" type="string">
+    <value>
+      @+
+    </value>
+  </const>
+  <const name="SHOW_MIN_FLAG" type="string">
+    <value>
+      @-
+    </value>
+  </const>
+  <const name="SHOW_HIDE_FLAG" type="Char">
+    <value>
+      $40
+    </value>
+  </const>
+  <const name="RESTART_FLAG" type="string">
+    <value>
+      Restart
+    </value>
+  </const>
+  <const name="CLEAN_FLAG" type="string">
+    <value>
+      Clean
+    </value>
+  </const>
+  <const name="CMD_DIR" type="string">
+    <value>
+      MyCmd
+    </value>
+  </const>
+  <const name="LOCALIZED_KEYNAMES" type="Boolean">
+    <value>
+      True
+    </value>
+  </const>
+  <const name="SECTION_CONFIG" type="string">
+    <value>
+      Config
+    </value>
+  </const>
+  <const name="SECTION_WINDOW" type="string">
+    <value>
+      Window
+    </value>
+  </const>
+  <const name="SECTION_GUI" type="string">
+    <value>
+      GUI
+    </value>
+  </const>
+  <const name="SECTION_DEBUG" type="string">
+    <value>
+      DEBUG
+    </value>
+  </const>
+  <const name="KEY_HOTKEY1" type="string">
+    <value>
+      HotKey1
+    </value>
+  </const>
+  <const name="KEY_HOTKEY2" type="string">
+    <value>
+      HotKey2
+    </value>
+  </const>
+  <const name="KEY_AUTORUN" type="string">
+    <value>
+      AutoRun
+    </value>
+  </const>
+  <const name="KEY_ADDTOSENDTO" type="string">
+    <value>
+      AddToSendTo
+    </value>
+  </const>
+  <const name="KEY_REGEX" type="string">
+    <value>
+      Regex
+    </value>
+  </const>
+  <const name="KEY_HIDEDELAY" type="string">
+    <value>
+      HideDelay
+    </value>
+  </const>
+  <const name="KEY_MATCHANYWHERE" type="string">
+    <value>
+      MatchAnywhere
+    </value>
+  </const>
+  <const name="KEY_NUMBERKEY" type="string">
+    <value>
+      NumberKey
+    </value>
+  </const>
+  <const name="KEY_INDEXFROM0TO9" type="string">
+    <value>
+      IndexFrom0to9
+    </value>
+  </const>
+  <const name="KEY_REMEMBERFAVOURATMATCH" type="string">
+    <value>
+      RememberFavouratMatch
+    </value>
+  </const>
+  <const name="KEY_PARAMHISTORYLIMIT" type="string">
+    <value>
+      ParamHistoryLimit
+    </value>
+  </const>
+  <const name="KEY_SHOWOPERATIONHINT" type="string">
+    <value>
+      ShowOperationHint
+    </value>
+  </const>
+  <const name="KEY_SHOWCOMMANDLINE" type="string">
+    <value>
+      ShowCommandLine
+    </value>
+  </const>
+  <const name="KEY_SHOWSTARTNOTIFICATION" type="string">
+    <value>
+      ShowStartNotification
+    </value>
+  </const>
+  <const name="KEY_SHOWTOPTEN" type="string">
+    <value>
+      ShowTopTen
+    </value>
+  </const>
+  <const name="KEY_PLAYPOPUPNOTIFY" type="string">
+    <value>
+      PlayPopupNotify
+    </value>
+  </const>
+  <const name="KEY_EXITWHENEXECUTE" type="string">
+    <value>
+      ExitWhenExecute
+    </value>
+  </const>
+  <const name="KEY_SHOWSKIN" type="string">
+    <value>
+      ShowSkin
+    </value>
+  </const>
+  <const name="KEY_SHOWMEWHENSTART" type="string">
+    <value>
+      ShowMeWhenStart
+    </value>
+  </const>
+  <const name="KEY_SHOWTRAYICON" type="string">
+    <value>
+      ShowTrayIcon
+    </value>
+  </const>
+  <const name="KEY_SHOWSHORTCUTBUTTON" type="string">
+    <value>
+      ShowShortCutButton
+    </value>
+  </const>
+  <const name="KEY_SHOWCONFIGBUTTON" type="string">
+    <value>
+      ShowConfigButton
+    </value>
+  </const>
+  <const name="KEY_SHOWCLOSEBUTTON" type="string">
+    <value>
+      ShowCloseButton
+    </value>
+  </const>
+  <const name="KEY_EXECUTEIFONLYONE" type="string">
+    <value>
+      ExecuteIfOnlyOne
+    </value>
+  </const>
+  <const name="KEY_WINTOP" type="string">
+    <value>
+      WinTop
+    </value>
+  </const>
+  <const name="KEY_WINLEFT" type="string">
+    <value>
+      WinLeft
+    </value>
+  </const>
+  <const name="KEY_MANWINTOP" type="string">
+    <value>
+      ManWinTop
+    </value>
+  </const>
+  <const name="KEY_MANWINLEFT" type="string">
+    <value>
+      ManWinLeft
+    </value>
+  </const>
+  <const name="KEY_MANWINWIDTH" type="string">
+    <value>
+      ManWinWidth
+    </value>
+  </const>
+  <const name="KEY_MANWINHEIGHT" type="string">
+    <value>
+      ManWinHeight
+    </value>
+  </const>
+  <const name="KEY_BGFILENAME" type="string">
+    <value>
+      BGFileName
+    </value>
+  </const>
+  <const name="KEY_TITLECOLOR" type="string">
+    <value>
+      TitleColor
+    </value>
+  </const>
+  <const name="KEY_KEYWORDCOLOR" type="string">
+    <value>
+      KeywordColor
+    </value>
+  </const>
+  <const name="KEY_LISTCOLOR" type="string">
+    <value>
+      ListColor
+    </value>
+  </const>
+  <const name="KEY_TITLEFONT" type="string">
+    <value>
+      TitleFont
+    </value>
+  </const>
+  <const name="KEY_KEYWORDFONT" type="string">
+    <value>
+      KeywordFont
+    </value>
+  </const>
+  <const name="KEY_LISTFONT" type="string">
+    <value>
+      ListFont
+    </value>
+  </const>
+  <const name="KEY_LISTFORMAT" type="string">
+    <value>
+      ListFormat
+    </value>
+  </const>
+  <const name="KEY_ALPHACOLOR" type="string">
+    <value>
+      AlphaColor
+    </value>
+  </const>
+  <const name="KEY_ALPHA" type="string">
+    <value>
+      Alpha
+    </value>
+  </const>
+  <const name="KEY_ROUNDBORDERRADIUS" type="string">
+    <value>
+      RoundBorderRadius
+    </value>
+  </const>
+  <const name="KEY_FORMWIDTH" type="string">
+    <value>
+      FormWidth
+    </value>
+  </const>
+  <const name="KEY_LANG" type="string">
+    <value>
+      Lang
+    </value>
+  </const>
+  <const name="DEFAULT_TITLE_FONT_STR" type="string">
+    <value>
+      ËÎÌå|[]|12|65535|0
+    </value>
+  </const>
+  <const name="DEFAULT_KEYWORD_FONT_STR" type="string">
+    <value>
+      ËÎÌå|[]|12|255|0
+    </value>
+  </const>
+  <const name="DEFAULT_LIST_FONT_STR" type="string">
+    <value>
+      ËÎÌå|[]|12|8388608|0
+    </value>
+  </const>
+  <const name="DEFAULT_LIST_FORMAT" type="string">
+    <value>
+      %%-25s| %%s
+    </value>
+  </const>
+  <const name="DEFAULT_ALPHACOLOR" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="DEFAULT_ALPHA" type="Integer">
+    <value>
+      $F0
+    </value>
+  </const>
+  <const name="DEFAULT_ROUNDBORDERRADIUS" type="Integer">
+    <value>
+      $C
+    </value>
+  </const>
+  <const name="DEFAULT_FORMWIDTH" type="Integer">
+    <value>
+      $1A4
+    </value>
+  </const>
+  <const name="DEFAULT_BGFILENAME" type="string">
+    <value>
+      BG.jpg
+    </value>
+  </const>
+  <const name="DEFAULT_LANG" type="string">
+    <value>
+      EN
+    </value>
+  </const>
+  <const name="KEY_TRACEENABLE" type="string">
+    <value>
+      TraceEnable
+    </value>
+  </const>
+  <const name="KEY_SHORTCUTRUNCOUNT" type="string">
+    <value>
+      ShortCutRunCount
+    </value>
+  </const>
+  <const name="KEY_HANDLEID" type="string">
+    <value>
+      HandleID
+    </value>
+  </const>
+  <const name="KEY_MODIFYTIME" type="string">
+    <value>
+      ModifyTime
+    </value>
+  </const>
+  <const name="KEY_LATESTLIST" type="string">
+    <value>
+      LatestList
+    </value>
+  </const>
+  <const name="SECTION_COMMON" type="string">
+    <value>
+      Common
+    </value>
+  </const>
+  <const name="SECTION_ALTRUNFORM" type="string">
+    <value>
+      ALTRunForm
+    </value>
+  </const>
+  <const name="SECTION_CONFIGFORM" type="string">
+    <value>
+      ConfigForm
+    </value>
+  </const>
+  <const name="SECTION_INVALIDFORM" type="string">
+    <value>
+      InvalidForm
+    </value>
+  </const>
+  <const name="SECTION_SHORTCUTMANFORM" type="string">
+    <value>
+      ShortCutManForm
+    </value>
+  </const>
+  <const name="SECTION_SHORTCUTFORM" type="string">
+    <value>
+      ShortCutForm
+    </value>
+  </const>
+  <const name="SECTION_ABOUTFORM" type="string">
+    <value>
+      AboutForm
+    </value>
+  </const>
+  <const name="SECTION_DEFAULTSHORTCUTLIST" type="string">
+    <value>
+      DefaultShortCutName
+    </value>
+  </const>
+  <const name="KEY_INFO" type="string">
+    <value>
+      Info
+    </value>
+  </const>
+  <const name="KEY_ABOUT" type="string">
+    <value>
+      About
+    </value>
+  </const>
+  <const name="KEY_DELETE" type="string">
+    <value>
+      Delete
+    </value>
+  </const>
+  <const name="KEY_WARNING" type="string">
+    <value>
+      Warning
+    </value>
+  </const>
+  <const name="KEY_WORDOR" type="string">
+    <value>
+      WordOr
+    </value>
+  </const>
+  <const name="KEY_WORDAND" type="string">
+    <value>
+      WordAnd
+    </value>
+  </const>
+  <const name="KEY_MENUSHOW" type="string">
+    <value>
+      MenuShow
+    </value>
+  </const>
+  <const name="KEY_MENUSHORTCUT" type="string">
+    <value>
+      MenuShortCut
+    </value>
+  </const>
+  <const name="KEY_MENUCONFIG" type="string">
+    <value>
+      MenuConfig
+    </value>
+  </const>
+  <const name="KEY_MENUABOUT" type="string">
+    <value>
+      MenuAbout
+    </value>
+  </const>
+  <const name="KEY_MENUCLOSE" type="string">
+    <value>
+      MenuClose
+    </value>
+  </const>
+  <const name="KEY_BTNOK" type="string">
+    <value>
+      BtnOK
+    </value>
+  </const>
+  <const name="KEY_BTNCANCEL" type="string">
+    <value>
+      BtnCancel
+    </value>
+  </const>
+  <const name="KEY_BTNRESET" type="string">
+    <value>
+      BtnReset
+    </value>
+  </const>
+  <const name="KEY_BTNHELP" type="string">
+    <value>
+      BtnHelp
+    </value>
+  </const>
+  <const name="KEY_BTNTEST" type="string">
+    <value>
+      BtnTest
+    </value>
+  </const>
+  <const name="KEY_BTNADD" type="string">
+    <value>
+      BtnAdd
+    </value>
+  </const>
+  <const name="KEY_BTNEDIT" type="string">
+    <value>
+      BtnEdit
+    </value>
+  </const>
+  <const name="KEY_BTNDELETE" type="string">
+    <value>
+      BtnDelete
+    </value>
+  </const>
+  <const name="KEY_BTNPATHCONVERT" type="string">
+    <value>
+      BtnPathConvert
+    </value>
+  </const>
+  <const name="KEY_BTNVALIDATE" type="string">
+    <value>
+      BtnValidate
+    </value>
+  </const>
+  <const name="KEY_BTNCLOSE" type="string">
+    <value>
+      BtnClose
+    </value>
+  </const>
+  <const name="KEY_SHORTCUT" type="string">
+    <value>
+      ShortCut
+    </value>
+  </const>
+  <const name="KEY_NAME" type="string">
+    <value>
+      Name
+    </value>
+  </const>
+  <const name="KEY_PARAMTYPE" type="string">
+    <value>
+      ParamType
+    </value>
+  </const>
+  <const name="KEY_COMMANDLINE" type="string">
+    <value>
+      CommandLine
+    </value>
+  </const>
+  <const name="KEY_CANNOTEXECUTE" type="string">
+    <value>
+      CanNotExecute
+    </value>
+  </const>
+  <const name="KEY_STARTED" type="string">
+    <value>
+      Started
+    </value>
+  </const>
+  <const name="KEY_PRESSKEYTOSHOWME" type="string">
+    <value>
+      PressKeyToShowMe
+    </value>
+  </const>
+  <const name="KEY_MAINHINT" type="string">
+    <value>
+      MainHint
+    </value>
+  </const>
+  <const name="KEY_SHOWMEBYHOTKEY" type="string">
+    <value>
+      ShowMeByHotKey
+    </value>
+  </const>
+  <const name="KEY_NOITEMANDADD" type="string">
+    <value>
+      NoItemAndAdd
+    </value>
+  </const>
+  <const name="KEY_HOTKEYERROR" type="string">
+    <value>
+      HotKeyError
+    </value>
+  </const>
+  <const name="KEY_CMDLINE" type="string">
+    <value>
+      CMDLine
+    </value>
+  </const>
+  <const name="KEY_RUNNUM" type="string">
+    <value>
+      RunNum
+    </value>
+  </const>
+  <const name="KEY_KEYTOADD" type="string">
+    <value>
+      KeyToAdd
+    </value>
+  </const>
+  <const name="KEY_KEYTOOPENFOLDER" type="string">
+    <value>
+      KeyToOpenFolder
+    </value>
+  </const>
+  <const name="KEY_KEYTORUN" type="string">
+    <value>
+      KeyToRun
+    </value>
+  </const>
+  <const name="KEY_AUTORUNWHENSTART" type="string">
+    <value>
+      AutoRunWhenStart
+    </value>
+  </const>
+  <const name="KEY_ADDTOSENDTOMENU" type="string">
+    <value>
+      AddToSendToMenu
+    </value>
+  </const>
+  <const name="KEY_RESTARTMEINFO" type="string">
+    <value>
+      RestartMeInfo
+    </value>
+  </const>
+  <const name="KEY_CLEANCONFIRM" type="string">
+    <value>
+      CleanConfirm
+    </value>
+  </const>
+  <const name="KEY_RELATIVEPATHSUGGESTION" type="string">
+    <value>
+      RelativePathSuggestion
+    </value>
+  </const>
+  <const name="KEY_GETFILENAMEFAIL" type="string">
+    <value>
+      GetFileNameFail
+    </value>
+  </const>
+  <const name="KEY_SHORTCUTEXISTED" type="string">
+    <value>
+      ShortCutExisted
+    </value>
+  </const>
+  <const name="KEY_CONGRATULATIONS" type="string">
+    <value>
+      Congratulations
+    </value>
+  </const>
+  <const name="KEY_BLANKLINEADDED" type="string">
+    <value>
+      BlankLineAdded
+    </value>
+  </const>
+  <const name="KEY_BTNSHORTCUTHINT" type="string">
+    <value>
+      BtnShortCutHint
+    </value>
+  </const>
+  <const name="KEY_BTNCONFIGHINT" type="string">
+    <value>
+      BtnConfigHint
+    </value>
+  </const>
+  <const name="KEY_BTNFAKECLOSEHINT" type="string">
+    <value>
+      BtnFAKECloseHint
+    </value>
+  </const>
+  <const name="KEY_EDTSHORTCUTHINT" type="string">
+    <value>
+      EdtShortCutHint
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_0" type="string">
+    <value>
+      HintList_0
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_1" type="string">
+    <value>
+      HintList_1
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_2" type="string">
+    <value>
+      HintList_2
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_3" type="string">
+    <value>
+      HintList_3
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_4" type="string">
+    <value>
+      HintList_4
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_5" type="string">
+    <value>
+      HintList_5
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_6" type="string">
+    <value>
+      HintList_6
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_7" type="string">
+    <value>
+      HintList_7
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_8" type="string">
+    <value>
+      HintList_8
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_9" type="string">
+    <value>
+      HintList_9
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_10" type="string">
+    <value>
+      HintList_10
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_11" type="string">
+    <value>
+      HintList_11
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_12" type="string">
+    <value>
+      HintList_12
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_13" type="string">
+    <value>
+      HintList_13
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_14" type="string">
+    <value>
+      HintList_14
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_15" type="string">
+    <value>
+      HintList_15
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_16" type="string">
+    <value>
+      HintList_16
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_17" type="string">
+    <value>
+      HintList_17
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_18" type="string">
+    <value>
+      HintList_18
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_19" type="string">
+    <value>
+      HintList_19
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_20" type="string">
+    <value>
+      HintList_20
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_21" type="string">
+    <value>
+      HintList_21
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_22" type="string">
+    <value>
+      HintList_22
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_23" type="string">
+    <value>
+      HintList_23
+    </value>
+  </const>
+  <const name="KEY_HINTLIST_24" type="string">
+    <value>
+      HintList_24
+    </value>
+  </const>
+  <const name="KEY_PAGECONFIG" type="string">
+    <value>
+      PageConfig
+    </value>
+  </const>
+  <const name="KEY_PAGEHOTKEY" type="string">
+    <value>
+      PageHotKey
+    </value>
+  </const>
+  <const name="KEY_PAGEFONT" type="string">
+    <value>
+      PageFont
+    </value>
+  </const>
+  <const name="KEY_PAGEFORM" type="string">
+    <value>
+      PageForm
+    </value>
+  </const>
+  <const name="KEY_PAGELANG" type="string">
+    <value>
+      PageLang
+    </value>
+  </const>
+  <const name="KEY_CONFIGFORMCAPTION" type="string">
+    <value>
+      ConfigFormCaption
+    </value>
+  </const>
+  <const name="KEY_RESETALLCONFIG" type="string">
+    <value>
+      ResetAllConfig
+    </value>
+  </const>
+  <const name="KEY_RESETALLFONTS" type="string">
+    <value>
+      ResetAllFonts
+    </value>
+  </const>
+  <const name="KEY_VOIDHOTKEY" type="string">
+    <value>
+      VoidHotKey
+    </value>
+  </const>
+  <const name="KEY_LBLHOTKEY1" type="string">
+    <value>
+      LblHotKey1
+    </value>
+  </const>
+  <const name="KEY_LBLHOTKEY2" type="string">
+    <value>
+      LblHotKey2
+    </value>
+  </const>
+  <const name="KEY_LBLTITLEFONT" type="string">
+    <value>
+      LblTitleFont
+    </value>
+  </const>
+  <const name="KEY_LBLTITLESAMPLE" type="string">
+    <value>
+      LblTitleSample
+    </value>
+  </const>
+  <const name="KEY_LBLKEYWORDFONT" type="string">
+    <value>
+      LblKeywordFont
+    </value>
+  </const>
+  <const name="KEY_LBLKEYWORDSAMPLE" type="string">
+    <value>
+      LblKeywordSample
+    </value>
+  </const>
+  <const name="KEY_LBLLISTFONT" type="string">
+    <value>
+      LblListFont
+    </value>
+  </const>
+  <const name="KEY_LBLLISTSAMPLE" type="string">
+    <value>
+      LblListSample
+    </value>
+  </const>
+  <const name="KEY_LBLLISTFORMAT" type="string">
+    <value>
+      LblListFormat
+    </value>
+  </const>
+  <const name="KEY_LBLRESETFONT" type="string">
+    <value>
+      LblResetFont
+    </value>
+  </const>
+  <const name="KEY_LBLFORMATSAMPLE" type="string">
+    <value>
+      LblFormatSample
+    </value>
+  </const>
+  <const name="KEY_LBLLISTFORMATSAMPLE" type="string">
+    <value>
+      LblListFormatSample
+    </value>
+  </const>
+  <const name="KEY_LBLFORMALPHACOLOR" type="string">
+    <value>
+      LblFormAlphaColor
+    </value>
+  </const>
+  <const name="KEY_LBLFORMALPHA" type="string">
+    <value>
+      LblFormAlpha
+    </value>
+  </const>
+  <const name="KEY_LBLROUNDBORDERRADIUS" type="string">
+    <value>
+      LblRoundBorderRadius
+    </value>
+  </const>
+  <const name="KEY_LBLFORMWIDTH" type="string">
+    <value>
+      LblFormWidth
+    </value>
+  </const>
+  <const name="KEY_LBLBACKGROUNDIMAGE" type="string">
+    <value>
+      LblBackGroundImage
+    </value>
+  </const>
+  <const name="KEY_LBLALPHAHINT" type="string">
+    <value>
+      LblAlphaHint
+    </value>
+  </const>
+  <const name="KEY_LBLLANGUAGE" type="string">
+    <value>
+      LblLanguage
+    </value>
+  </const>
+  <const name="KEY_LBLLANGUAGEHINT" type="string">
+    <value>
+      LblLanguageHint
+    </value>
+  </const>
+  <const name="KEY_LBLHOTKEYHINT" type="string">
+    <value>
+      LblHotKeyHint
+    </value>
+  </const>
+  <const name="KEY_LBLHOTKEYHINT1" type="string">
+    <value>
+      LblHotKeyHint1
+    </value>
+  </const>
+  <const name="KEY_LBLHOTKEYHINT2" type="string">
+    <value>
+      LblHotKeyHint2
+    </value>
+  </const>
+  <const name="KEY_BTNMODIFYTITLEFONT" type="string">
+    <value>
+      BtnModifyTitleFont
+    </value>
+  </const>
+  <const name="KEY_BTNMODIFYKEYWORDFONT" type="string">
+    <value>
+      BtnModifyKeywordFont
+    </value>
+  </const>
+  <const name="KEY_BTNMODIFYLISTFONT" type="string">
+    <value>
+      BtnModifyListFont
+    </value>
+  </const>
+  <const name="KEY_BTNRESETALLFONTS" type="string">
+    <value>
+      BtnResetAllFonts
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_0" type="string">
+    <value>
+      ConfigList_0
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_1" type="string">
+    <value>
+      ConfigList_1
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_2" type="string">
+    <value>
+      ConfigList_2
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_3" type="string">
+    <value>
+      ConfigList_3
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_4" type="string">
+    <value>
+      ConfigList_4
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_5" type="string">
+    <value>
+      ConfigList_5
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_6" type="string">
+    <value>
+      ConfigList_6
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_7" type="string">
+    <value>
+      ConfigList_7
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_8" type="string">
+    <value>
+      ConfigList_8
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_9" type="string">
+    <value>
+      ConfigList_9
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_10" type="string">
+    <value>
+      ConfigList_10
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_11" type="string">
+    <value>
+      ConfigList_11
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_12" type="string">
+    <value>
+      ConfigList_12
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_13" type="string">
+    <value>
+      ConfigList_13
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_14" type="string">
+    <value>
+      ConfigList_14
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_15" type="string">
+    <value>
+      ConfigList_15
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_16" type="string">
+    <value>
+      ConfigList_16
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_17" type="string">
+    <value>
+      ConfigList_17
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_18" type="string">
+    <value>
+      ConfigList_18
+    </value>
+  </const>
+  <const name="KEY_CONFIGLIST_19" type="string">
+    <value>
+      ConfigList_19
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_0" type="string">
+    <value>
+      ConfigDescList_0
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_1" type="string">
+    <value>
+      ConfigDescList_1
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_2" type="string">
+    <value>
+      ConfigDescList_2
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_3" type="string">
+    <value>
+      ConfigDescList_3
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_4" type="string">
+    <value>
+      ConfigDescList_4
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_5" type="string">
+    <value>
+      ConfigDescList_5
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_6" type="string">
+    <value>
+      ConfigDescList_6
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_7" type="string">
+    <value>
+      ConfigDescList_7
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_8" type="string">
+    <value>
+      ConfigDescList_8
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_9" type="string">
+    <value>
+      ConfigDescList_9
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_10" type="string">
+    <value>
+      ConfigDescList_10
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_11" type="string">
+    <value>
+      ConfigDescList_11
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_12" type="string">
+    <value>
+      ConfigDescList_12
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_13" type="string">
+    <value>
+      ConfigDescList_13
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_14" type="string">
+    <value>
+      ConfigDescList_14
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_15" type="string">
+    <value>
+      ConfigDescList_15
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_16" type="string">
+    <value>
+      ConfigDescList_16
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_17" type="string">
+    <value>
+      ConfigDescList_17
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_18" type="string">
+    <value>
+      ConfigDescList_18
+    </value>
+  </const>
+  <const name="KEY_CONFIGDESCLIST_19" type="string">
+    <value>
+      ConfigDescList_19
+    </value>
+  </const>
+  <const name="KEY_INVALIDFORMCAPTION" type="string">
+    <value>
+      InvalidFormCaption
+    </value>
+  </const>
+  <const name="KEY_COMMANDLINEEMPTY" type="string">
+    <value>
+      CommandLineEempty
+    </value>
+  </const>
+  <const name="KEY_SHORTCUTMANFORMCAPTION" type="string">
+    <value>
+      ShortCutManFormCaption
+    </value>
+  </const>
+  <const name="KEY_NOINVALIDSHORTCUT" type="string">
+    <value>
+      NoInvalidShortCut
+    </value>
+  </const>
+  <const name="KEY_DELETEBLANKLINET" type="string">
+    <value>
+      DeleteBlankLine
+    </value>
+  </const>
+  <const name="KEY_DELETECONFIRM" type="string">
+    <value>
+      DeleteConfirm
+    </value>
+  </const>
+  <const name="KEY_VALIDATECONFIRM" type="string">
+    <value>
+      ValidateConfirm
+    </value>
+  </const>
+  <const name="KEY_PATHCONVERTCONFIRM" type="string">
+    <value>
+      PathConvertConfirm
+    </value>
+  </const>
+  <const name="KEY_CONVERTFINISHED" type="string">
+    <value>
+      ConvertFinished
+    </value>
+  </const>
+  <const name="KEY_BTNADDHINT" type="string">
+    <value>
+      BtnAddHint
+    </value>
+  </const>
+  <const name="KEY_BTNEDITHINT" type="string">
+    <value>
+      BtnEditHint
+    </value>
+  </const>
+  <const name="KEY_BTNDELETEHINT" type="string">
+    <value>
+      BtnDeleteHint
+    </value>
+  </const>
+  <const name="KEY_BtnPathConvertHint" type="string">
+    <value>
+      BtnPathConvertHint
+    </value>
+  </const>
+  <const name="KEY_BTNVALIDATEHINT" type="string">
+    <value>
+      BtnValidateHint
+    </value>
+  </const>
+  <const name="KEY_BTNHELPHINT" type="string">
+    <value>
+      BtnHelpHint
+    </value>
+  </const>
+  <const name="KEY_BTNCLOSEHINT" type="string">
+    <value>
+      BtnCloseHint
+    </value>
+  </const>
+  <const name="KEY_BTNCANCELHINT" type="string">
+    <value>
+      BtnCancelHint
+    </value>
+  </const>
+  <const name="KEY_SHORTCUTFORMCAPTION" type="string">
+    <value>
+      ShortCutFormCaption
+    </value>
+  </const>
+  <const name="KEY_GRPSHORTCUT" type="string">
+    <value>
+      GrpShortCut
+    </value>
+  </const>
+  <const name="KEY_BTNFILE" type="string">
+    <value>
+      BtnFile
+    </value>
+  </const>
+  <const name="KEY_BTNDIR" type="string">
+    <value>
+      BtnDir
+    </value>
+  </const>
+  <const name="KEY_GRPPARAMTYPE" type="string">
+    <value>
+      GrpParamType
+    </value>
+  </const>
+  <const name="KEY_LBLEDTCOMMANDLINEHINT" type="string">
+    <value>
+      LblEdtCommandLineHint
+    </value>
+  </const>
+  <const name="KEY_PARAMTYPE_0" type="string">
+    <value>
+      ParamType_0
+    </value>
+  </const>
+  <const name="KEY_PARAMTYPE_1" type="string">
+    <value>
+      ParamType_1
+    </value>
+  </const>
+  <const name="KEY_PARAMTYPE_2" type="string">
+    <value>
+      ParamType_2
+    </value>
+  </const>
+  <const name="KEY_PARAMTYPE_3" type="string">
+    <value>
+      ParamType_3
+    </value>
+  </const>
+  <const name="KEY_SELECTDIR" type="string">
+    <value>
+      SelectDir
+    </value>
+  </const>
+  <const name="KEY_PARAMCONFIRM" type="string">
+    <value>
+      ParamConfirm
+    </value>
+  </const>
+  <const name="KEY_REPLACECONFIRM" type="string">
+    <value>
+      ReplaceConfirm
+    </value>
+  </const>
+  <const name="KEY_REPLACESHORTCUTCONFIRM" type="string">
+    <value>
+      ReplaceShortCutConfirm
+    </value>
+  </const>
+  <const name="KEY_REPLACENAMECONFIRM" type="string">
+    <value>
+      ReplaceNameConfirm
+    </value>
+  </const>
+  <const name="KEY_NAMECANNOTINCLUDE" type="string">
+    <value>
+      NameCanNotInclude
+    </value>
+  </const>
+  <const name="KEY_STATISTICS" type="string">
+    <value>
+      Statistics
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_0" type="string">
+    <value>
+      Default_ShortCut_Name_0
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_1" type="string">
+    <value>
+      Default_ShortCut_Name_1
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_2" type="string">
+    <value>
+      Default_ShortCut_Name_2
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_3" type="string">
+    <value>
+      Default_ShortCut_Name_3
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_4" type="string">
+    <value>
+      Default_ShortCut_Name_4
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_5" type="string">
+    <value>
+      Default_ShortCut_Name_5
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_6" type="string">
+    <value>
+      Default_ShortCut_Name_6
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_7" type="string">
+    <value>
+      Default_ShortCut_Name_7
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_8" type="string">
+    <value>
+      Default_ShortCut_Name_8
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_9" type="string">
+    <value>
+      Default_ShortCut_Name_9
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_10" type="string">
+    <value>
+      Default_ShortCut_Name_10
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_11" type="string">
+    <value>
+      Default_ShortCut_Name_11
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_12" type="string">
+    <value>
+      Default_ShortCut_Name_12
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_13" type="string">
+    <value>
+      Default_ShortCut_Name_13
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_14" type="string">
+    <value>
+      Default_ShortCut_Name_14
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_15" type="string">
+    <value>
+      Default_ShortCut_Name_15
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_16" type="string">
+    <value>
+      Default_ShortCut_Name_16
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_17" type="string">
+    <value>
+      Default_ShortCut_Name_17
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_18" type="string">
+    <value>
+      Default_ShortCut_Name_18
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_19" type="string">
+    <value>
+      Default_ShortCut_Name_19
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_20" type="string">
+    <value>
+      Default_ShortCut_Name_20
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_21" type="string">
+    <value>
+      Default_ShortCut_Name_21
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_22" type="string">
+    <value>
+      Default_ShortCut_Name_22
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_23" type="string">
+    <value>
+      Default_ShortCut_Name_23
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_24" type="string">
+    <value>
+      Default_ShortCut_Name_24
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_25" type="string">
+    <value>
+      Default_ShortCut_Name_25
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_26" type="string">
+    <value>
+      Default_ShortCut_Name_26
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_27" type="string">
+    <value>
+      Default_ShortCut_Name_27
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_28" type="string">
+    <value>
+      Default_ShortCut_Name_28
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_29" type="string">
+    <value>
+      Default_ShortCut_Name_29
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_30" type="string">
+    <value>
+      Default_ShortCut_Name_30
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_31" type="string">
+    <value>
+      Default_ShortCut_Name_31
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_32" type="string">
+    <value>
+      Default_ShortCut_Name_32
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_33" type="string">
+    <value>
+      Default_ShortCut_Name_33
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_34" type="string">
+    <value>
+      Default_ShortCut_Name_34
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_35" type="string">
+    <value>
+      Default_ShortCut_Name_35
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_36" type="string">
+    <value>
+      Default_ShortCut_Name_36
+    </value>
+  </const>
+  <const name="KEY_DEFAULTSHORTCUTLIST_37" type="string">
+    <value>
+      Default_ShortCut_Name_37
+    </value>
+  </const>
+  <variable name="HotKeyStr1" type="string" />
+  <variable name="HotKeyStr2" type="string" />
+  <variable name="TraceEnable" type="Boolean" />
+  <variable name="IsRunFirstTime" type="Boolean" />
+  <variable name="AutoRun" type="Boolean" />
+  <variable name="AddToSendTo" type="Boolean" />
+  <variable name="EnableRegex" type="Boolean" />
+  <variable name="HideDelay" type="Integer" />
+  <variable name="MatchAnywhere" type="Boolean" />
+  <variable name="EnableNumberKey" type="Boolean" />
+  <variable name="IndexFrom0to9" type="Boolean" />
+  <variable name="RememberFavouratMatch" type="Boolean" />
+  <variable name="ParamHistoryLimit" type="Integer" />
+  <variable name="ShowOperationHint" type="Boolean" />
+  <variable name="ShowCommandLine" type="Boolean" />
+  <variable name="ShowStartNotification" type="Boolean" />
+  <variable name="ShowTopTen" type="Boolean" />
+  <variable name="PlayPopupNotify" type="Boolean" />
+  <variable name="ExitWhenExecute" type="Boolean" />
+  <variable name="ShowSkin" type="Boolean" />
+  <variable name="ShowMeWhenStart" type="Boolean" />
+  <variable name="ShowTrayIcon" type="Boolean" />
+  <variable name="ShowShortCutButton" type="Boolean" />
+  <variable name="ShowConfigButton" type="Boolean" />
+  <variable name="ShowCloseButton" type="Boolean" />
+  <variable name="ExecuteIfOnlyOne" type="Boolean" />
+  <variable name="BGFileName" type="string" />
+  <variable name="TitleColor" type="TColor" />
+  <variable name="KeywordColor" type="TColor" />
+  <variable name="ListColor" type="TColor" />
+  <variable name="TitleFontStr" type="string" />
+  <variable name="KeywordFontStr" type="string" />
+  <variable name="ListFontStr" type="string" />
+  <variable name="ListFormat" type="string" />
+  <variable name="AlphaColor" type="TColor" />
+  <variable name="Alpha" type="Integer" />
+  <variable name="RoundBorderRadius" type="Integer" />
+  <variable name="FormWidth" type="Integer" />
+  <variable name="Lang" type="string" />
+  <variable name="WinTop" type="Integer" />
+  <variable name="WinLeft" type="Integer" />
+  <variable name="ManWinTop" type="Integer" />
+  <variable name="ManWinLeft" type="Integer" />
+  <variable name="ManWinWidth" type="Integer" />
+  <variable name="ManWinHeight" type="Integer" />
+  <variable name="ShortCutRunCount" type="Integer" />
+  <variable name="HandleID" type="Cardinal" />
+  <variable name="ModifyTime" type="string" />
+  <variable name="LatestList" type="string" />
+  <variable name="resInfo" type="string" />
+  <variable name="resAbout" type="string" />
+  <variable name="resDelete" type="string" />
+  <variable name="resWarning" type="string" />
+  <variable name="resWordOr" type="string" />
+  <variable name="resWordAnd" type="string" />
+  <variable name="resMenuShow" type="string" />
+  <variable name="resMenuShortCut" type="string" />
+  <variable name="resMenuConfig" type="string" />
+  <variable name="resMenuAbout" type="string" />
+  <variable name="resMenuClose" type="string" />
+  <variable name="resBtnOK" type="string" />
+  <variable name="resBtnCancel" type="string" />
+  <variable name="resBtnReset" type="string" />
+  <variable name="resBtnHelp" type="string" />
+  <variable name="resBtnTest" type="string" />
+  <variable name="resBtnAdd" type="string" />
+  <variable name="resBtnEdit" type="string" />
+  <variable name="resBtnDelete" type="string" />
+  <variable name="resBtnPathConvert" type="string" />
+  <variable name="resBtnValidate" type="string" />
+  <variable name="resBtnClose" type="string" />
+  <variable name="resShortCut" type="string" />
+  <variable name="resName" type="string" />
+  <variable name="resParamType" type="string" />
+  <variable name="resCommandLine" type="string" />
+  <variable name="resCanNotExecute" type="string" />
+  <variable name="resStarted" type="string" />
+  <variable name="resPressKeyToShowMe" type="string" />
+  <variable name="resMainHint" type="string" />
+  <variable name="resShowMeByHotKey" type="string" />
+  <variable name="resNoItemAndAdd" type="string" />
+  <variable name="resHotKeyError" type="string" />
+  <variable name="resCMDLine" type="string" />
+  <variable name="resRunNum" type="string" />
+  <variable name="resKeyToAdd" type="string" />
+  <variable name="resKeyToOpenFolder" type="string" />
+  <variable name="resKeyToRun" type="string" />
+  <variable name="resAutoRunWhenStart" type="string" />
+  <variable name="resAddToSendToMenu" type="string" />
+  <variable name="resRestartMeInfo" type="string" />
+  <variable name="resCleanConfirm" type="string" />
+  <variable name="resRelativePathSuggestion" type="string" />
+  <variable name="resGetFileNameFail" type="string" />
+  <variable name="resShortCutExisted" type="string" />
+  <variable name="resCongratulations" type="string" />
+  <variable name="resBlankLineAdded" type="string" />
+  <variable name="resBtnShortCutHint" type="string" />
+  <variable name="resBtnConfigHint" type="string" />
+  <variable name="resBtnFakeCloseHint" type="string" />
+  <variable name="resEdtShortCutHint" type="string" />
+  <variable name="resPageConfig" type="string" />
+  <variable name="resPageHotKey" type="string" />
+  <variable name="resPageFont" type="string" />
+  <variable name="resPageForm" type="string" />
+  <variable name="resPageLang" type="string" />
+  <variable name="resConfigFormCaption" type="string" />
+  <variable name="resResetAllConfig" type="string" />
+  <variable name="resResetAllFonts" type="string" />
+  <variable name="resVoidHotKey" type="string" />
+  <variable name="resLblHotKey1" type="string" />
+  <variable name="resLblHotKey2" type="string" />
+  <variable name="resLblTitleFont" type="string" />
+  <variable name="resLblTitleSample" type="string" />
+  <variable name="resLblKeywordFont" type="string" />
+  <variable name="resLblKeywordSample" type="string" />
+  <variable name="resLblListFont" type="string" />
+  <variable name="resLblListSample" type="string" />
+  <variable name="resLblListFormat" type="string" />
+  <variable name="resLblResetFont" type="string" />
+  <variable name="resLblFormatSample" type="string" />
+  <variable name="resLblListFormatSample" type="string" />
+  <variable name="resLblFormAlphaColor" type="string" />
+  <variable name="resLblFormAlpha" type="string" />
+  <variable name="resLblRoundBorderRadius" type="string" />
+  <variable name="resLblFormWidth" type="string" />
+  <variable name="resLblBackGroundImage" type="string" />
+  <variable name="resLblAlphaHint" type="string" />
+  <variable name="resLblLanguage" type="string" />
+  <variable name="resLblLanguageHint" type="string" />
+  <variable name="resLblHotKeyHint" type="string" />
+  <variable name="resLblHotKeyHint1" type="string" />
+  <variable name="resLblHotKeyHint2" type="string" />
+  <variable name="resBtnModifyTitleFont" type="string" />
+  <variable name="resBtnModifyKeywordFont" type="string" />
+  <variable name="resBtnModifyListFont" type="string" />
+  <variable name="resBtnResetAllFonts" type="string" />
+  <variable name="resConfigList_0" type="string" />
+  <variable name="resConfigList_1" type="string" />
+  <variable name="resConfigList_2" type="string" />
+  <variable name="resConfigList_3" type="string" />
+  <variable name="resConfigList_4" type="string" />
+  <variable name="resConfigList_5" type="string" />
+  <variable name="resConfigList_6" type="string" />
+  <variable name="resConfigList_7" type="string" />
+  <variable name="resConfigList_8" type="string" />
+  <variable name="resConfigList_9" type="string" />
+  <variable name="resConfigList_10" type="string" />
+  <variable name="resConfigList_11" type="string" />
+  <variable name="resConfigList_12" type="string" />
+  <variable name="resConfigList_13" type="string" />
+  <variable name="resConfigList_14" type="string" />
+  <variable name="resConfigList_15" type="string" />
+  <variable name="resConfigList_16" type="string" />
+  <variable name="resConfigList_17" type="string" />
+  <variable name="resConfigList_18" type="string" />
+  <variable name="resConfigList_19" type="string" />
+  <variable name="resInvalidFormCaption" type="string" />
+  <variable name="resCommandLineEempty" type="string" />
+  <variable name="resShortCutManFormCaption" type="string" />
+  <variable name="resNoInvalidShortCut" type="string" />
+  <variable name="resDeleteBlankLine" type="string" />
+  <variable name="resDeleteConfirm" type="string" />
+  <variable name="resValidateConfirm" type="string" />
+  <variable name="resPathConvertConfirm" type="string" />
+  <variable name="resConvertFinished" type="string" />
+  <variable name="resBtnAddHint" type="string" />
+  <variable name="resBtnEditHint" type="string" />
+  <variable name="resBtnDeleteHint" type="string" />
+  <variable name="resBtnPathConvertHint" type="string" />
+  <variable name="resBtnValidateHint" type="string" />
+  <variable name="resBtnHelpHint" type="string" />
+  <variable name="resBtnCloseHint" type="string" />
+  <variable name="resBtnCancelHint" type="string" />
+  <variable name="resShortCutFormCaption" type="string" />
+  <variable name="resGrpShortCut" type="string" />
+  <variable name="resBtnFile" type="string" />
+  <variable name="resBtnDir" type="string" />
+  <variable name="resGrpParamType" type="string" />
+  <variable name="resLblEdtCommandLineHint" type="string" />
+  <variable name="resParamType_0" type="string" />
+  <variable name="resParamType_1" type="string" />
+  <variable name="resParamType_2" type="string" />
+  <variable name="resParamType_3" type="string" />
+  <variable name="resSelectDir" type="string" />
+  <variable name="resParamConfirm" type="string" />
+  <variable name="resReplaceConfirm" type="string" />
+  <variable name="resReplaceShortCutConfirm" type="string" />
+  <variable name="resReplaceNameConfirm" type="string" />
+  <variable name="resNameCanNotInclude" type="string" />
+  <variable name="resStatistics" type="string" />
+  <variable name="resDefault_ShortCut_Name_0" type="string" />
+  <variable name="resDefault_ShortCut_Name_1" type="string" />
+  <variable name="resDefault_ShortCut_Name_2" type="string" />
+  <variable name="resDefault_ShortCut_Name_3" type="string" />
+  <variable name="resDefault_ShortCut_Name_4" type="string" />
+  <variable name="resDefault_ShortCut_Name_5" type="string" />
+  <variable name="resDefault_ShortCut_Name_6" type="string" />
+  <variable name="resDefault_ShortCut_Name_7" type="string" />
+  <variable name="resDefault_ShortCut_Name_8" type="string" />
+  <variable name="resDefault_ShortCut_Name_9" type="string" />
+  <variable name="resDefault_ShortCut_Name_10" type="string" />
+  <variable name="resDefault_ShortCut_Name_11" type="string" />
+  <variable name="resDefault_ShortCut_Name_12" type="string" />
+  <variable name="resDefault_ShortCut_Name_13" type="string" />
+  <variable name="resDefault_ShortCut_Name_14" type="string" />
+  <variable name="resDefault_ShortCut_Name_15" type="string" />
+  <variable name="resDefault_ShortCut_Name_16" type="string" />
+  <variable name="resDefault_ShortCut_Name_17" type="string" />
+  <variable name="resDefault_ShortCut_Name_18" type="string" />
+  <variable name="resDefault_ShortCut_Name_19" type="string" />
+  <variable name="resDefault_ShortCut_Name_20" type="string" />
+  <variable name="resDefault_ShortCut_Name_21" type="string" />
+  <variable name="resDefault_ShortCut_Name_22" type="string" />
+  <variable name="resDefault_ShortCut_Name_23" type="string" />
+  <variable name="resDefault_ShortCut_Name_24" type="string" />
+  <variable name="resDefault_ShortCut_Name_25" type="string" />
+  <variable name="resDefault_ShortCut_Name_26" type="string" />
+  <variable name="resDefault_ShortCut_Name_27" type="string" />
+  <variable name="resDefault_ShortCut_Name_28" type="string" />
+  <variable name="resDefault_ShortCut_Name_29" type="string" />
+  <variable name="resDefault_ShortCut_Name_30" type="string" />
+  <variable name="resDefault_ShortCut_Name_31" type="string" />
+  <variable name="resDefault_ShortCut_Name_32" type="string" />
+  <variable name="resDefault_ShortCut_Name_33" type="string" />
+  <variable name="resDefault_ShortCut_Name_34" type="string" />
+  <variable name="resDefault_ShortCut_Name_35" type="string" />
+  <variable name="resDefault_ShortCut_Name_36" type="string" />
+  <variable name="resDefault_ShortCut_Name_37" type="string" />
+  <variable name="ShortCutListFileName" type="string" />
+  <variable name="HintList">
+    <array low="0" high="24" generated="true">
+      <element type="string" />
+    </array>
+  </variable>
+  <variable name="ConfigDescList">
+    <array low="0" high="19" generated="true">
+      <element type="string" />
+    </array>
+  </variable>
+  <variable name="ListFormatList" visibility="public">
+    <array low="0" high="2" generated="true">
+      <element type="string" />
+    </array>
+  </variable>
+  <function name="FontStylesToStr" visibility="public">
+    <parameters>
+      <parameter name="FontStyles" type="TFontStyles" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="StrToFontStyles" visibility="public">
+    <parameters>
+      <parameter name="strStyles" type="string" />
+      <retval type="TFontStyles" />
+    </parameters>
+  </function>
+  <function name="FontToStr" visibility="public">
+    <parameters>
+      <parameter name="Font" type="TFont" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="StrToFont" visibility="public">
+    <parameters>
+      <parameter name="strFont" type="string" />
+      <parameter name="Font" type="TFont" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <procedure name="LoadSettings" visibility="public">
+  </procedure>
+  <procedure name="SaveSettings" visibility="public">
+  </procedure>
+  <procedure name="SetActiveLanguage" visibility="public">
+  </procedure>
+</namespace>

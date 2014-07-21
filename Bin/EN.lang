@@ -1,0 +1,250 @@
+[Common]
+Info                      = Info
+About                     = About
+Delete                    = Delete
+Warning                   = Warning
+WordOr                    = or
+WordAnd                   = and
+
+MenuShow                  = Show(&W)
+MenuShortCut              = ShortCut(&S)
+MenuConfig                = Config(&C)
+MenuAbout                 = About(&A)
+MenuClose                 = Close(&X)
+
+BtnOK                     = OK
+BtnCancel                 = Cancel
+BtnReset                  = Reset
+BtnHelp                   = Help
+BtnTest                   = Test
+BtnAdd                    = Add
+BtnEdit                   = Edit
+BtnDelete                 = Delete
+BtnPathConvert            = Path Convert
+BtnValidate               = Validate
+BtnClose                  = Close
+
+ShortCut                  = ShortCut
+Name                      = Name
+ParamType                 = Param Type
+CommandLine               = Command Line
+CanNotExecute             = Can not execute "%s %s"
+
+[ALTRunForm]
+Started                   = %s %s is started,
+PressKeyToShowMe          = You can press %s to show me
+MainHint                  = %s %s%s[HotKey = %s]
+ShowMeByHotKey            = It's better to show me by press hotkey %s
+NoItemAndAdd              = No such item "%s", add this shortcut?
+HotKeyError               = HotKey can not be "%s"
+CMDLine                   = CMD=
+RunNum                    = Press ALT+%s or CTRL+%s to run ShortCut
+KeyToAdd                  = Press ENTER to ADD this ShortCut
+KeyToOpenFolder           = Press CTRL+D to OPEN FOLDER of this ShortCut
+KeyToRun                  = Press ENTER or SPACE to RUN ShortCut
+AutoRunWhenStart          = Do you want run me when system started?
+AddToSendToMenu           = Do you want add me into SendTo menu?
+RestartMeInfo             = Some change of config need to restart me right now.
+CleanConfirm              = Confirm to disable autorun when system started, and remove me from "SendTo" menu?
+RelativePathSuggestion    = Replace absolute path with relative path? It is better for portable use.
+GetFileNameFail           = Can not get file name!
+ShortCutExisted           = The ShortCut with same shortcut has already existed [%s (%s) = %s]. Replace it?
+Congratulations           = Congratulations! You have executed %d times!
+BlankLineAdded            = Blank line added.
+
+BtnShortCutHint           = Press ALT+S to show ShortCut Manager
+BtnConfigHint             = Press ALT+C to show Config Manager
+BtnCloseHint              = Press ESC to hide me
+EdtShortCutHint           = Type Keyword here, then press ENTER
+
+HintList_0                = Press INSERT to add new ShortCut
+HintList_1                = Press F2 to rename this ShortCut
+HintList_2                = Press DELETE to delete this ShortCut
+HintList_3                = Press F1 to show About
+HintList_4                = Press ESC to hide me
+HintList_5                = Type "b" to search by Baidu 
+HintList_6                = Type "g" to search by Google 
+HintList_7                = Type "s" to search MP3 by Sogou
+HintList_8                = Type "zd" to search by Baidu Zhidao
+HintList_9                = Press ALT+C to show Config Manager
+HintList_10               = Press CTRL+D to open folder of some ShortCut
+HintList_11               = You can disable this hint by config
+HintList_12               = You can disable the CMD line by config
+HintList_13               = Please manually backup ShortCutList.txt in time
+HintList_14               = Press CTRL+C to copy CMD line to Clipboard
+HintList_15               = Press SPACE or ENTER to execute ShortCut
+HintList_16               = Type ";" to run the 2nd item
+HintList_17               = Type "'" to run the 3rd item
+HintList_18               = Press CTRL+L to show latest ShortCut
+HintList_19               = Press TAB to show next ShortCut
+HintList_20               = Press Shift+TAB to show previous ShortCut
+HintList_21               = Type "cb" to search Clipboard text by Baidu
+HintList_22               = Type "cg" to search Clipboard text by Google
+HintList_23               = Scroll Mouse to change selected ShortCut
+HintList_24               = Click middle button of Mouse to execute ShortCut
+
+[ConfigForm]
+PageConfig                = Config
+PageHotKey                = HotKey
+PageFont                  = Font
+PageForm                  = Form
+PageLang                  = Language
+
+ConfigFormCaption         = Config
+ResetAllConfig            = Reset all config settings to default value?
+ResetAllFonts             = Reset all Fonts to default value?
+VoidHotKey                = 
+
+LblHotKey1                = Primary HotKey
+LblHotKey2                = Secondary HotKey
+LblTitleFont              = Title Font
+LblTitleSample            = Title Sample
+LblKeywordFont            = Keyword Font
+LblKeywordSample          = Keyword Sample
+LblListFont               = List Font
+LblListSample             =  List Sample
+LblListFormat             = List Format
+LblResetFont              = Reset All Fonts
+LblFormatSample           = Format Sample
+LblListFormatSample       = List Format Sample
+LblFormAlphaColor         = Form Alpha Color
+LblFormAlpha              = Form Alpha
+lblRoundBorderRadius      = Round Border Radius
+lblFormWidth              = Form Width (Pixel)
+LblBackGroundImage        = BackGround Image
+LblAlphaHint              = Form Setting will take into effect when next start up
+LblLanguage               = Language
+LblLanguageHint           = Language Setting will take into effect when next start up
+LblHotKeyHint             = You can choose another hot key as secondary hot key
+LblHotKeyHint1            = Type keyboard to select one key, this is the primary hot key
+LblHotKeyHint2            = Type keyboard to select one key, this is the secondary hot key. You can type DELETE key to disable secondary hot key
+
+BtnModifyTitleFont        = Modify Title Font
+BtnModifyKeywordFont      = Modify Keyword Font
+BtnModifyListFont         = Modify List Font
+BtnResetAllFonts          = Reset All Fonts
+
+ConfigList_0              = Auto run me when Windows start
+ConfigList_1              = Add ALTRun to SendTo Menu
+ConfigList_2              = Enable Regex (Wild char = *, ?)
+ConfigList_3              = Match Keyword from Anywhere
+ConfigList_4              = Enable Number Key
+ConfigList_5              = Index = 0, 1, ..., 8, 9
+ConfigList_6              = Remember Last ShortCut Match
+ConfigList_7              = Show Hint
+ConfigList_8              = Show Command Line
+ConfigList_9              = Show Start Notification
+ConfigList_10             = Show Top 10 Only
+ConfigList_11             = Play Popup Notify
+ConfigList_12             = Exit When Execute
+ConfigList_13             = Show Skin
+ConfigList_14             = Show When Start
+ConfigList_15             = Show Tray Icon
+ConfigList_16             = Show ShortCut Manager Button
+ConfigList_17             = Show Config Button
+ConfigList_18             = Show Close Button
+ConfigList_19             = Execute Immediately If Only One Matched
+
+ConfigDescList_0          = If checked, auto run me when windows startup
+ConfigDescList_1          = If checked, add HotRun into SendTo menu
+ConfigDescList_2          = If checked, enable wild char (such as *,?)
+ConfigDescList_3          = If UNCHECKED, match keyword from the first char
+ConfigDescList_4          = If checked, type number 0-9 to launch shortcut item
+ConfigDescList_5          = If UNCHECKED, Index is 1, 2, ..., 9, 0
+ConfigDescList_6          = If checked, Only Remember the Last ShortCut Match
+ConfigDescList_7          = If checked, Show Hint in EditBox
+ConfigDescList_8          = If checked, Show Command Line in bottom
+ConfigDescList_9          = If checked, Show Ballon NotificationLine when start up
+ConfigDescList_10         = If checked, Show Top 10 only
+ConfigDescList_11         = If checked, Play notify sound when main window popup
+ConfigDescList_12         = If checked, Application will exit when shortcut executed
+ConfigDescList_13         = If UNCHECKED, Unload skin picture
+ConfigDescList_14         = If checked, Show me when started
+ConfigDescList_15         = If checked, Show Tray Icon
+ConfigDescList_16         = If checked, Show ShortCut Manager Button
+ConfigDescList_17         = If checked, Show Config Button
+ConfigDescList_18         = If checked, Show Close Button
+ConfigDescList_19         = If checked, Execute immediately if only one ShortCut matched
+
+[InvalidForm]
+InvalidFormCaption        = Invalid ShortCut List
+CommandLineEempty         = CommandLine is empty!
+
+[ShortCutManForm]
+ShortCutManFormCaption    = ShortCut Manager
+NoInvalidShortCut         = No Invalid ShortCut found.
+DeleteBlankLine           = Delete Blank Line?
+DeleteConfirm             = Delete %s(%s)?
+ValidateConfirm           = Validate will remove some invalid ShortCut (NOT ALL invalid ones will be checked out), do you still want go?
+PathConvertConfirm        = Switch Absolute path with Relative path for all shortcut(Only shortcuts where in ALTRun folder will be handled)?%sYES: for Absolute path => Relative path%sNO: Relative path => Absolute path
+ConvertFinished           = Convert finished (Count = %d)
+
+BtnAddHint                = Add new ShortCut item                         
+BtnEditHint               = Edit this ShortCut item                       
+BtnDeleteHint             = Delete this ShortCut item                     
+BtnPathConvertHint        = Convert Absolute Path and Relative Path
+BtnValidateHint           = Validate all ShortCuts and remove invalid ones
+BtnHelpHint               = Show Help
+BtnCloseHint              = Save and close
+BtnCancelHint             = Not save and close
+
+[ShortCutForm]
+ShortCutFormCaption       = ShortCut
+GrpShortCut               = ShortCut
+BtnFile                   = File
+BtnDir                    = Dir
+GrpParamType              = Param Type
+LblEdtCommandLineHint     = "%p" in Command Line will be replaced with param, and "%c" will be replaced with Clipboard text
+ParamType_0               = No Param
+ParamType_1               = Param without encoding
+ParamType_2               = Param with URL encoding (e.g. Baidu search query)
+ParamType_3               = Param with UTF-8 encoding (e.g. Google/Yahoo search query)
+SelectDir                 = Please select directory
+ParamConfirm              = Seems forget to choose a Param Type, back to choose one?
+ReplaceConfirm            = Replace "%s" with "%s"?
+ReplaceShortCutConfirm    = Replace ShortCut Confirm
+ReplaceNameConfirm        = Replace Name Confirm
+NameCanNotInclude         = Name can not include ","
+
+[AboutForm]
+Statistics                = You have run shortcut %d times by now
+
+[DefaultShortCutName]
+Default_ShortCut_Name_0   = My Computer
+Default_ShortCut_Name_1   = Explorer
+Default_ShortCut_Name_2   = My Document
+Default_ShortCut_Name_3   = Internet Explorer
+Default_ShortCut_Name_4   = Notepad
+Default_ShortCut_Name_5   = MS Paint
+Default_ShortCut_Name_6   = Dos Shell
+Default_ShortCut_Name_7   = Calculator
+Default_ShortCut_Name_8   = Show Desktop
+Default_ShortCut_Name_9   = System Config
+Default_ShortCut_Name_10  = Registry Editor
+Default_ShortCut_Name_11  = My IP address
+Default_ShortCut_Name_12  = Device Manager
+Default_ShortCut_Name_13  = Task Manager
+Default_ShortCut_Name_14  = Shutdown Computer
+Default_ShortCut_Name_15  = Reboot Computer
+Default_ShortCut_Name_16  = Windows Directory
+Default_ShortCut_Name_17  = System32 Directory
+Default_ShortCut_Name_18  = Program Files Directory
+Default_ShortCut_Name_19  = Recent Directory
+Default_ShortCut_Name_20  = Baidu Search Engine
+Default_ShortCut_Name_21  = Google Search Engine
+Default_ShortCut_Name_22  = Sogou MP3 Search Engine
+Default_ShortCut_Name_23  = Baidu Zhidao Search Engine
+Default_ShortCut_Name_24  = VeryCD Search Engine
+Default_ShortCut_Name_25  = Yahoo Search Engine
+Default_ShortCut_Name_26  = Go to ALTRun Upgrade Site
+Default_ShortCut_Name_27  = Edit ALTRun Config
+Default_ShortCut_Name_28  = Add/Remove Program
+Default_ShortCut_Name_29  = Control Panel
+Default_ShortCut_Name_30  = Internet Connection
+Default_ShortCut_Name_31  = System Property
+Default_ShortCut_Name_32  = Run
+Default_ShortCut_Name_33  = Baidu Search Clipboard
+Default_ShortCut_Name_34  = Google Search Clipboard
+Default_ShortCut_Name_35  = Show Window Only
+Default_ShortCut_Name_36  = Hide Window
+Default_ShortCut_Name_37  = UnHide Window

@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="untShortCutMan">
+  <const name="SHORTCUT_FILENAME" type="string">
+    <value>
+      ShortCutList.txt
+    </value>
+  </const>
+  <const name="FAVOURIT_FILENAME" type="string">
+    <value>
+      FavoriteList.txt
+    </value>
+  </const>
+  <const name="PARAM_DELIMITER" type="string">
+    <value>
+      /\
+    </value>
+  </const>
+  <const name="MAX_LATEST_NUM" type="Integer">
+    <value>
+      $A
+    </value>
+  </const>
+  <const name="scOther" type="TShortCutType">
+    <value>
+      scOther
+    </value>
+  </const>
+  <const name="scItem" type="TShortCutType">
+    <value>
+      scItem
+    </value>
+  </const>
+  <const name="scBlank" type="TShortCutType">
+    <value>
+      scBlank
+    </value>
+  </const>
+  <const name="scRemark" type="TShortCutType">
+    <value>
+      scRemark
+    </value>
+  </const>
+  <enum name="TShortCutType">
+    <element name="scOther" />
+    <element name="scItem" />
+    <element name="scBlank" />
+    <element name="scRemark" />
+  </enum>
+  <const name="ptNone" type="TParamType">
+    <value>
+      ptNone
+    </value>
+  </const>
+  <const name="ptNoEncoding" type="TParamType">
+    <value>
+      ptNoEncoding
+    </value>
+  </const>
+  <const name="ptURLQuery" type="TParamType">
+    <value>
+      ptURLQuery
+    </value>
+  </const>
+  <const name="ptUTF8Query" type="TParamType">
+    <value>
+      ptUTF8Query
+    </value>
+  </const>
+  <enum name="TParamType">
+    <element name="ptNone" />
+    <element name="ptNoEncoding" />
+    <element name="ptURLQuery" />
+    <element name="ptUTF8Query" />
+  </enum>
+  <const name="siItem" type="TShortCutIcon">
+    <value>
+      siItem
+    </value>
+  </const>
+  <const name="siInfo" type="TShortCutIcon">
+    <value>
+      siInfo
+    </value>
+  </const>
+  <enum name="TShortCutIcon">
+    <element name="siItem" />
+    <element name="siInfo" />
+  </enum>
+  <class name="TCmdObject">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="Command" type="string" visibility="public" />
+      <field name="WorkingDir" type="string" visibility="public" />
+      <field name="Param" type="string" visibility="public" />
+      <field name="ParamType" type="TParamType" visibility="public" />
+    </members>
+  </class>
+  <class name="TShortCutItem">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="ShortCutType" type="TShortCutType" visibility="public" />
+      <field name="ParamType" type="TParamType" visibility="public" />
+      <field name="ShortCut" type="string" visibility="public" />
+      <field name="Name" type="string" visibility="public" />
+      <field name="CommandLine" type="string" visibility="public" />
+      <field name="Rank" type="Integer" visibility="public" />
+      <field name="Freq" type="Integer" visibility="public" />
+    </members>
+  </class>
+  <class name="TShortCutList" alias="TObjectList" namespace="Contnrs">
+    <ancestor name="TList" namespace="Classes">
+      <methodref name="Get" visibility="protected">
+      </methodref>
+      <methodref name="Grow" visibility="public">
+      </methodref>
+      <methodref name="Put" visibility="protected">
+      </methodref>
+      <methodref name="Notify" visibility="public">
+      </methodref>
+      <methodref name="SetCapacity" visibility="protected">
+      </methodref>
+      <methodref name="SetCount" visibility="protected">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+      <methodref name="Add" visibility="public">
+      </methodref>
+      <methodref name="Clear" visibility="public">
+      </methodref>
+      <methodref name="Delete" visibility="public">
+      </methodref>
+      <methodref name="Error" visibility="public">
+      </methodref>
+      <methodref name="Error" visibility="public">
+      </methodref>
+      <methodref name="Exchange" visibility="public">
+      </methodref>
+      <methodref name="Expand" visibility="public">
+      </methodref>
+      <methodref name="Extract" visibility="public">
+      </methodref>
+      <methodref name="First" visibility="public">
+      </methodref>
+      <methodref name="GetEnumerator" visibility="public">
+      </methodref>
+      <methodref name="IndexOf" visibility="public">
+      </methodref>
+      <methodref name="Insert" visibility="public">
+      </methodref>
+      <methodref name="Last" visibility="public">
+      </methodref>
+      <methodref name="Move" visibility="public">
+      </methodref>
+      <methodref name="Remove" visibility="public">
+      </methodref>
+      <methodref name="Pack" visibility="public">
+      </methodref>
+      <methodref name="Sort" visibility="public">
+      </methodref>
+      <methodref name="Assign" visibility="public">
+      </methodref>
+      <propertyref name="Capacity" visibility="public">
+      </propertyref>
+      <propertyref name="Count" visibility="public">
+      </propertyref>
+      <propertyref name="Items" visibility="public">
+      </propertyref>
+      <propertyref name="List" visibility="public">
+      </propertyref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FOwnsObjects" type="Boolean" visibility="private">
+      </field>
+      <procedure name="Notify" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Ptr" type="Pointer" />
+          <parameter name="Action" type="TListNotification" />
+        </parameters>
+      </procedure>
+      <function name="GetItem" visibility="protected">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <retval type="TObject" />
+        </parameters>
+      </function>
+      <procedure name="SetItem" visibility="protected">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <parameter name="AObject" type="TObject" />
+        </parameters>
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+        </parameters>
+      </constructor>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="AOwnsObjects" type="Boolean" />
+        </parameters>
+      </constructor>
+      <function name="Add" visibility="public">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="Extract" visibility="public">
+        <parameters>
+          <parameter name="Item" type="TObject" />
+          <retval type="TObject" />
+        </parameters>
+      </function>
+      <function name="Remove" visibility="public">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="IndexOf" visibility="public">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="FindInstanceOf" visibility="public">
+        <parameters>
+          <parameter name="AClass" type="TClass" />
+          <parameter name="AExact" type="Boolean">
+            <value>
+              True
+            </value>
+          </parameter>
+          <parameter name="AStartAt" type="Integer">
+            <value>
+              $0
+            </value>
+          </parameter>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="Insert" visibility="public">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <parameter name="AObject" type="TObject" />
+        </parameters>
+      </procedure>
+      <function name="First" visibility="public">
+        <parameters>
+          <retval type="TObject" />
+        </parameters>
+      </function>
+      <function name="Last" visibility="public">
+        <parameters>
+          <retval type="TObject" />
+        </parameters>
+      </function>
+      <property name="OwnsObjects" visibility="public" read="FOwnsObjects" write="FOwnsObjects" type="Boolean">
+      </property>
+      <property name="Items" visibility="public" read="GetItem" write="SetItem" type="TObject">
+      </property>
+    </members>
+  </class>
+  <class name="TShortCutMan">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="m_WriteDefaultShortCutList" type="Boolean" visibility="private" />
+      <field name="m_ShortCutFileName" type="string" visibility="private" />
+      <field name="m_FavoriteListFileName" type="string" visibility="private" />
+      <field name="m_FileModifyTime" type="string" visibility="private" />
+      <field name="m_ShortCutList" type="TObjectList" visibility="private" />
+      <field name="m_SortedShortCutList" type="TStringList" visibility="private" />
+      <field name="m_FavoriteList" type="TStringList" visibility="private" />
+      <field name="m_LatestList" type="TStringList" visibility="private" />
+      <field name="m_Regex" type="TRegExpr" visibility="private" />
+      <field name="m_NeedRefresh" type="Boolean" visibility="private" />
+      <field name="m_Param" type=".4" visibility="private" />
+      <function name="GetParam" visibility="private">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="SetParam" visibility="private">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <parameter name="Value" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <property name="WriteDefaultShortCutList" visibility="public" read="m_WriteDefaultShortCutList" write="m_WriteDefaultShortCutList" type="Boolean" />
+      <property name="ShortCutFileName" visibility="public" read="m_ShortCutFileName" write="m_ShortCutFileName" type="string" />
+      <property name="ShortCutList" visibility="public" read="m_ShortCutList" write="m_ShortCutList" type="TObjectList" />
+      <property name="NeedRefresh" visibility="public" read="m_NeedRefresh" write="m_NeedRefresh" type="Boolean" />
+      <property name="Param" visibility="public" read="GetParam" write="SetParam" type="string" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <function name="LoadShortCutList" visibility="public">
+        <parameters>
+          <parameter name="FileName" type="string">
+            <value>
+              
+            </value>
+          </parameter>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="SaveShortCutList" visibility="public">
+        <parameters>
+          <parameter name="FileName" type="string">
+            <value>
+              
+            </value>
+          </parameter>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="CloneShortCutList" visibility="public">
+        <parameters>
+          <parameter name="SrcList" type="TObjectList" />
+          <parameter name="NewList" type="TObjectList" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="FillListView" visibility="public">
+        <parameters>
+          <parameter name="lvw" type="TListView" />
+        </parameters>
+      </procedure>
+      <procedure name="LoadFromListView" visibility="public">
+        <parameters>
+          <parameter name="lvw" type="TListView" />
+        </parameters>
+      </procedure>
+      <function name="LoadFavoriteList" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="SaveFavoriteList" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="AddLatestShortCutItem" visibility="public">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetLatestShortCutItemList" visibility="public">
+        <parameters>
+          <parameter name="StringList" type="TStringList" paramflags="var" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetLatestShortCutIndexList" visibility="public">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="SetLatestShortCutIndexList" visibility="public">
+        <parameters>
+          <parameter name="IndexList" type="string" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="LoadLatestList" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="SaveLatestList" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ParamTypeToString" visibility="public">
+        <parameters>
+          <parameter name="ParamType" type="TParamType" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="StringToParamType" visibility="public">
+        <parameters>
+          <parameter name="str" type="string" />
+          <parameter name="ParamType" type="TParamType" paramflags="var" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ShortCutItemToString" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutType" type="TShortCutType" />
+          <parameter name="ParamType" type="TParamType">
+            <value>
+              ptNone
+            </value>
+          </parameter>
+          <parameter name="ShortCut" type="string">
+            <value>
+              
+            </value>
+          </parameter>
+          <parameter name="Name" type="string">
+            <value>
+              
+            </value>
+          </parameter>
+          <parameter name="CommandLine" type="string">
+            <value>
+              
+            </value>
+          </parameter>
+          <parameter name="Freq" type="Integer">
+            <value>
+              $0
+            </value>
+          </parameter>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="ShortCutItemToString" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="StringToShortCutItem" visibility="public">
+        <parameters>
+          <parameter name="str" type="string" />
+          <parameter name="ShortCutItem" type="TShortCutItem" paramflags="var" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="CloneShortCutItem" visibility="public">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <parameter name="NewItem" type="TShortCutItem" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="AppendShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutType" type="TShortCutType" />
+          <parameter name="ShortCut" type="string" />
+          <parameter name="Name" type="string" />
+          <parameter name="CommandLine" type="string" />
+        </parameters>
+      </procedure>
+      <procedure name="AppendShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+        </parameters>
+      </procedure>
+      <procedure name="ModifyShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutType" type="TShortCutType" />
+          <parameter name="ShortCut" type="string" />
+          <parameter name="Name" type="string" />
+          <parameter name="CommandLine" type="string" />
+          <parameter name="Index" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="ModifyShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <parameter name="Index" type="Integer" />
+        </parameters>
+      </procedure>
+      <function name="ContainShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutType" type="TShortCutType" />
+          <parameter name="ParamType" type="TParamType" />
+          <parameter name="ShortCut" type="string" />
+          <parameter name="Name" type="string" />
+          <parameter name="CommandLine" type="string" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ContainShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="InsertShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutType" type="TShortCutType" />
+          <parameter name="ParamType" type="TParamType" />
+          <parameter name="ShortCut" type="string" />
+          <parameter name="Name" type="string" />
+          <parameter name="CommandLine" type="string" />
+          <parameter name="Index" type="Integer" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="InsertShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <parameter name="Index" type="Integer" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="DeleteShortCutItem" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetShortCutItemIndex" visibility="public">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetShortCutItemByShortCut" visibility="public">
+        <parameters>
+          <parameter name="ShortCut" type="string" />
+          <parameter name="ShortCutItem" type="TShortCutItem" paramflags="var" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="FilterKeyWord" visibility="public">
+        <parameters>
+          <parameter name="KeyWord" type="string" />
+          <parameter name="StringList" type="TStringList" paramflags="var" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="SelectPivot" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="p" type="Integer" />
+          <parameter name="r" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="Partition" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="StringList" type="TStringList" paramflags="var" />
+          <parameter name="p" type="Integer" />
+          <parameter name="r" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="QuickSort" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="StringList" type="TStringList" paramflags="var" />
+          <parameter name="p" type="Integer" />
+          <parameter name="r" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="BubbleSort" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="StringList" type="TStringList" paramflags="var" />
+          <parameter name="p" type="Integer" />
+          <parameter name="r" type="Integer" />
+        </parameters>
+      </procedure>
+      <function name="Partition" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="StringList" type="TObjectList" paramflags="var" />
+          <parameter name="p" type="Integer" />
+          <parameter name="r" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="QuickSort" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="StringList" type="TObjectList" paramflags="var" />
+          <parameter name="p" type="Integer" />
+          <parameter name="r" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="BubbleSort" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="StringList" type="TObjectList" paramflags="var" />
+          <parameter name="p" type="Integer" />
+          <parameter name="r" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="Sort" visibility="public">
+      </procedure>
+      <function name="Execute" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="Execute" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="cmdobj" type="TCmdObject" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="Execute" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" />
+          <parameter name="KeyWord" type="string" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="AddFileShortCut" visibility="public">
+        <parameters>
+          <parameter name="FileName" type="string" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ExtractShortCutItemFromFileName" visibility="public">
+        <parameters>
+          <parameter name="ShortCutItem" type="TShortCutItem" paramflags="var" />
+          <parameter name="FileName" type="string" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="ReplaceEnvStr" visibility="public">
+        <parameters>
+          <parameter name="str" type="string" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="Test" visibility="public">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="PrintStringList" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="Title" type="string" />
+          <parameter name="StringList" type="TStringList" />
+          <parameter name="p" type="Integer" />
+          <parameter name="q" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="PrintStringList" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="Title" type="string" />
+          <parameter name="StringList" type="TObjectList" />
+          <parameter name="p" type="Integer" />
+          <parameter name="q" type="Integer" />
+        </parameters>
+      </procedure>
+    </members>
+  </class>
+  <variable name="ShortCutMan" type="TShortCutMan" />
+</namespace>

@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="untClipboard">
+  <variable name="CF_PICTURE" type="Word" />
+  <variable name="CF_COMPONENT" type="Word" />
+  <class name="TClipboard">
+    <ancestor name="TPersistent" namespace="Classes">
+      <methodref name="AssignError" visibility="private">
+      </methodref>
+      <methodref name="AssignTo" visibility="public">
+      </methodref>
+      <methodref name="DefineProperties" visibility="public">
+      </methodref>
+      <methodref name="GetOwner" visibility="protected">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+      <methodref name="Assign" visibility="public">
+      </methodref>
+      <methodref name="GetNamePath" visibility="public">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FOpenRefCount" type="Integer" visibility="private" />
+      <field name="FClipboardWindow" type="HWND" visibility="private" />
+      <field name="FAllocated" type="Boolean" visibility="private" />
+      <field name="FEmptied" type="Boolean" visibility="private" />
+      <procedure name="Adding" visibility="private">
+      </procedure>
+      <procedure name="AssignGraphic" visibility="private">
+        <parameters>
+          <parameter name="Source" type="TGraphic" />
+        </parameters>
+      </procedure>
+      <procedure name="AssignPicture" visibility="private">
+        <parameters>
+          <parameter name="Source" type="TPicture" />
+        </parameters>
+      </procedure>
+      <procedure name="AssignToBitmap" visibility="private">
+        <parameters>
+          <parameter name="Dest" type="TBitmap" />
+        </parameters>
+      </procedure>
+      <procedure name="AssignToMetafile" visibility="private">
+        <parameters>
+          <parameter name="Dest" type="TMetafile" />
+        </parameters>
+      </procedure>
+      <procedure name="AssignToPicture" visibility="private">
+        <parameters>
+          <parameter name="Dest" type="TPicture" />
+        </parameters>
+      </procedure>
+      <function name="GetAsText" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetClipboardWindow" visibility="private">
+        <parameters>
+          <retval type="HWND" />
+        </parameters>
+      </function>
+      <function name="GetFormatCount" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetFormats" visibility="private">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <retval type="Word" />
+        </parameters>
+      </function>
+      <procedure name="SetAsText" visibility="private">
+        <parameters>
+          <parameter name="Value" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetAsUnicodeText" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="SetAsUnicodeText" visibility="private">
+        <parameters>
+          <parameter name="Value" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="AssignTo" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Dest" type="TPersistent" />
+        </parameters>
+      </procedure>
+      <procedure name="SetBuffer" visibility="protected">
+        <parameters>
+          <parameter name="Format" type="Word" />
+          <parameter name="Buffer" paramflags="var" />
+          <parameter name="Size" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="WndProc" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Message" type="TMessage" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="MainWndProc" visibility="protected">
+        <parameters>
+          <parameter name="Message" type="TMessage" paramflags="var" />
+        </parameters>
+      </procedure>
+      <property name="Handle" visibility="protected" read="GetClipboardWindow" type="HWND" />
+      <property name="OpenRefCount" visibility="protected" read="FOpenRefCount" type="Integer" />
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <procedure name="Assign" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Source" type="TPersistent" />
+        </parameters>
+      </procedure>
+      <procedure name="Clear" visibility="public" procflags="virtual">
+      </procedure>
+      <procedure name="Close" visibility="public" procflags="virtual">
+      </procedure>
+      <function name="GetComponent" visibility="public">
+        <parameters>
+          <parameter name="Owner" type="TComponent" />
+          <parameter name="Parent" type="TComponent" />
+          <retval type="TComponent" />
+        </parameters>
+      </function>
+      <function name="GetAsHandle" visibility="public">
+        <parameters>
+          <parameter name="Format" type="Word" />
+          <retval type="Cardinal" />
+        </parameters>
+      </function>
+      <function name="GetTextBuf" visibility="public">
+        <parameters>
+          <parameter name="Buffer" type="PAnsiChar" />
+          <parameter name="BufSize" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="HasFormat" visibility="public">
+        <parameters>
+          <parameter name="Format" type="Word" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="Open" visibility="public" procflags="virtual">
+      </procedure>
+      <procedure name="SetComponent" visibility="public">
+        <parameters>
+          <parameter name="Component" type="TComponent" />
+        </parameters>
+      </procedure>
+      <procedure name="SetAsHandle" visibility="public">
+        <parameters>
+          <parameter name="Format" type="Word" />
+          <parameter name="Value" type="Cardinal" />
+        </parameters>
+      </procedure>
+      <procedure name="SetTextBuf" visibility="public">
+        <parameters>
+          <parameter name="Buffer" type="PAnsiChar" />
+        </parameters>
+      </procedure>
+      <property name="AsText" visibility="public" read="GetAsText" write="SetAsText" type="string" />
+      <property name="AsUnicodeText" visibility="public" read="GetAsUnicodeText" write="SetAsUnicodeText" type="string" />
+      <property name="FormatCount" visibility="public" read="GetFormatCount" type="Integer" />
+      <property name="Formats" visibility="public" read="GetFormats" type="Word" />
+    </members>
+  </class>
+  <function name="Clipboard" visibility="public">
+    <parameters>
+      <retval type="TClipboard" />
+    </parameters>
+  </function>
+  <function name="SetClipboard" visibility="public">
+    <parameters>
+      <parameter name="NewClipboard" type="TClipboard" />
+      <retval type="TClipboard" />
+    </parameters>
+  </function>
+</namespace>

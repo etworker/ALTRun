@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="SimpleTimer">
+  <class name="TSimpleTimer">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="FId" type="Cardinal" visibility="private" />
+      <field name="FEnabled" type="Boolean" visibility="private" />
+      <field name="FInterval" type="Cardinal" visibility="private" />
+      <field name="FAutoDisable" type="Boolean" visibility="private" />
+      <field name="FTag" type="Integer" visibility="private" />
+      <field name="FOnTimer" type="TNotifyEvent" visibility="private" />
+      <procedure name="SetEnabled" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="SetInterval" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Cardinal" />
+        </parameters>
+      </procedure>
+      <procedure name="SetOnTimer" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TNotifyEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="Initialize" visibility="private">
+        <parameters>
+          <parameter name="AInterval" type="Cardinal" />
+          <parameter name="AOnTimer" type="TNotifyEvent" />
+        </parameters>
+      </procedure>
+      <function name="Start" visibility="protected">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="Stop" visibility="protected">
+        <parameters>
+          <parameter name="Disable" type="Boolean" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <constructor name="Create" visibility="public">
+        <parameters>
+        </parameters>
+      </constructor>
+      <constructor name="CreateEx" visibility="public">
+        <parameters>
+          <parameter name="AInterval" type="Cardinal" />
+          <parameter name="AOnTimer" type="TNotifyEvent" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <property name="Enabled" visibility="public" read="FEnabled" write="SetEnabled" type="Boolean" />
+      <property name="Interval" visibility="public" read="FInterval" write="SetInterval" type="Cardinal" default="1000" />
+      <property name="AutoDisable" visibility="public" read="FAutoDisable" write="FAutoDisable" type="Boolean" />
+      <property name="Tag" visibility="public" read="FTag" write="FTag" type="Integer" default="0" />
+      <event name="OnTimer" visibility="public" read="FOnTimer" write="SetOnTimer" type="TNotifyEvent" />
+    </members>
+  </class>
+  <function name="GetSimpleTimerCount" visibility="public">
+    <parameters>
+      <retval type="Cardinal" />
+    </parameters>
+  </function>
+  <function name="GetSimpleTimerActiveCount" visibility="public">
+    <parameters>
+      <retval type="Cardinal" />
+    </parameters>
+  </function>
+</namespace>

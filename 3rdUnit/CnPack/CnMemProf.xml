@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="CnMemProf">
+  <variable name="GetMemCount" type="Integer" visibility="public" />
+  <variable name="FreeMemCount" type="Integer" visibility="public" />
+  <variable name="ReallocMemCount" type="Integer" visibility="public" />
+  <variable name="mmPopupMsgDlg" type="Boolean" visibility="public" />
+  <variable name="mmShowObjectInfo" type="Boolean" visibility="public" />
+  <variable name="mmUseObjectList" type="Boolean" visibility="public" />
+  <variable name="mmSaveToLogFile" type="Boolean" visibility="public" />
+  <variable name="mmErrLogFile" visibility="public" />
+  <procedure name="SnapToFile" visibility="public">
+    <parameters>
+      <parameter name="Filename" type="string" />
+    </parameters>
+  </procedure>
+</namespace>

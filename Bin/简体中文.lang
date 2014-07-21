@@ -1,0 +1,250 @@
+[Common]
+Info                      = 提示
+About                     = 关于
+Delete                    = 删除
+Warning                   = 警告
+WordOr                    = 或
+WordAnd                   = 和
+
+MenuShow                  = 显示主界面(&W)
+MenuShortCut              = 快捷项管理(&S)
+MenuConfig                = 配置(&C)
+MenuAbout                 = 关于(&A)
+MenuClose                 = 退出(&X)
+
+BtnOK                     = 确定
+BtnCancel                 = 取消
+BtnReset                  = 重置
+BtnHelp                   = 帮助
+BtnTest                   = 测试
+BtnAdd                    = 添加
+BtnEdit                   = 编辑
+BtnDelete                 = 删除
+BtnPathConvert            = 路径转换
+BtnValidate               = 校验
+BtnClose                  = 关闭
+
+ShortCut                  = 快捷项
+Name                      = 名称
+ParamType                 = 参数类型
+CommandLine               = 命令行
+CanNotExecute             = 无法运行 "%s %s"
+
+[ALTRunForm]
+Started                   = %s %s 已经启动,
+PressKeyToShowMe          = 请按 %s 来显示
+MainHint                  = %s %s%s[热键 = %s]
+ShowMeByHotKey            = 最好通过热键 %s 来显示
+NoItemAndAdd              = 无此项 "%s", 添加它?
+HotKeyError               = 热键不可为 "%s"
+CMDLine                   = 命令=
+RunNum                    = 按下 ALT+%s 或 CTRL+%s 执行快捷项
+KeyToAdd                  = 按下回车键添加快捷项
+KeyToOpenFolder           = 按下 CTRL+D 打开快捷项所在目录
+KeyToRun                  = 按下回车键或空格键执行快捷项
+AutoRunWhenStart          = 是否希望软件在系统启动时自动运行?
+AddToSendToMenu           = 是否希望软件添加到“发送到”菜单?
+RestartMeInfo             = 某些配置的更改需要重启本软件
+CleanConfirm              = 确认取消随系统启动，并从“发送到”菜单中删除?
+RelativePathSuggestion    = 使用相对路径替换绝对路径吗？这样便于在U盘上使用
+GetFileNameFail           = 无法取得文件名!
+ShortCutExisted           = 同名快捷项已存在 [%s (%s) = %s]，是否替换?
+Congratulations           = 恭喜！您已经运行了 %d 次快捷项！
+BlankLineAdded            = 空行已添加.
+
+BtnShortCutHint           = 按下 ALT+S 打开快捷项管理窗口
+BtnConfigHint             = 按下 ALT+C 打开配置管理窗口
+BtnCloseHint              = 按下 ESC 键隐藏主窗体
+EdtShortCutHint           = 输入关键字，然后按回车
+
+HintList_0                = 按下 INSERT 键添加新快捷项
+HintList_1                = 按下 F2 键编辑快捷项
+HintList_2                = 按下 DELETE 键删除此快捷项
+HintList_3                = 按下 F1 键打开关于窗口
+HintList_4                = 按下 ESC 键隐藏窗口
+HintList_5                = 输入 "b" 再回车，打开百度搜索
+HintList_6                = 输入 "g" 再回车，打开Google搜索
+HintList_7                = 输入 "s" 再回车，打开搜狗MP3搜索
+HintList_8                = 输入 "zd" 再回车，打开百度知道
+HintList_9                = 按下 ALT+C，打开配置管理窗口
+HintList_10               = 按下 CTRL+D，打开快捷项文件夹
+HintList_11               = 您可以在配置中取消本提示
+HintList_12               = 您可以在配置中取消底部命令行
+HintList_13               = 请及时手动备份 ShortCutList.txt
+HintList_14               = 按下 CTRL+C，复制命令行到剪贴板
+HintList_15               = 按下回车键或空格键执行快捷项
+HintList_16               = 按下 ";" ，运行第2项快捷项
+HintList_17               = 按下 "'" ，运行第3项快捷项
+HintList_18               = 按下 CTRL+L，显示最近执行的快捷项
+HintList_19               = 按下Tab键显示下一项快捷项
+HintList_20               = 按下Shift+Tab键显示上一项快捷项
+HintList_21               = 输入 "cb" 再回车，使用百度搜索剪贴板文字
+HintList_22               = 输入 "cg" 再回车，使用Google搜索剪贴板文字
+HintList_23               = 滚动鼠标滚轮可以改变选择的快捷项
+HintList_24               = 按下鼠标中键执行高亮的快捷项
+
+[ConfigForm]
+PageConfig                = 配置
+PageHotKey                = 热键
+PageFont                  = 字体
+PageForm                  = 窗体
+PageLang                  = 语言
+
+ConfigFormCaption         = 配置
+ResetAllConfig            = 重置所有配置为缺省值?
+ResetAllFonts             = 重置全部字体为缺省值?
+VoidHotKey                = 
+
+LblHotKey1                = 主热键
+LblHotKey2                = 辅热键
+LblTitleFont              = 标题字体
+LblTitleSample            = 标题字体示例
+LblKeywordFont            = 关键字字体
+LblKeywordSample          = 关键字字体示例
+LblListFont               = 列表字体
+LblListSample             = 列表字体示例
+LblListFormat             = 列表格式
+LblResetFont              = 重置所有字体
+LblFormatSample           = 列表格式示例
+LblListFormatSample       = 列表格式示例
+LblFormAlphaColor         = 主界面Alpha颜色
+LblFormAlpha              = 主界面Alpha值
+lblRoundBorderRadius      = 主界面圆角半径
+lblFormWidth              = 主界面宽度(像素)
+LblBackGroundImage        = 皮肤图片
+LblAlphaHint              = 修改主界面设置需要重新启动本软件以生效
+LblLanguage               = 语言
+LblLanguageHint           = 修改语言需要重新启动本软件以生效
+LblHotKeyHint             = 可以选择另一个热键作为辅热键
+LblHotKeyHint1            = 敲键盘输入快捷键，这是主热键
+LblHotKeyHint2            = 敲键盘输入快捷键，这是辅热键。按下DELETE键可以去除辅热键
+
+BtnModifyTitleFont        = 修改标题字体
+BtnModifyKeywordFont      = 修改关键字字体
+BtnModifyListFont         = 修改列表字体
+BtnResetAllFonts          = 重置所有字体
+
+ConfigList_0              = 随系统自动启动
+ConfigList_1              = 添加到“发送到”菜单
+ConfigList_2              = 允许正则表达式(通配符 = *, ?)
+ConfigList_3              = 从任意位置匹配关键字
+ConfigList_4              = 允许数字快捷键
+ConfigList_5              = 数字序列顺序 = 0, 1, ..., 8, 9
+ConfigList_6              = 保存最近一次匹配
+ConfigList_7              = 显示提示
+ConfigList_8              = 显示命令行
+ConfigList_9              = 启动时显示气泡提示
+ConfigList_10             = 仅显示前10项
+ConfigList_11             = 主窗体弹出时播放声音
+ConfigList_12             = 执行快捷项后退出
+ConfigList_13             = 显示皮肤
+ConfigList_14             = 启动时显示窗体
+ConfigList_15             = 显示托盘图标
+ConfigList_16             = 显示快捷项管理按钮
+ConfigList_17             = 显示配置按钮
+ConfigList_18             = 显示关闭按钮
+ConfigList_19             = 仅剩一项时立即执行
+
+ConfigDescList_0          = 如果选中，随系统启动而自动运行
+ConfigDescList_1          = 如果选中，将本软件添加到“发送到”菜单
+ConfigDescList_2          = 如果选中，允许输入框中输入通配符(如 *,?)
+ConfigDescList_3          = 如果未选中，从第一个字母匹配关键字
+ConfigDescList_4          = 如果选中，敲0-9键执行对应编号的快捷项
+ConfigDescList_5          = 如果未选中，编号顺序为 1, 2, ..., 9, 0
+ConfigDescList_6          = 如果选中，记住最近一次关键字和快捷项的对应关系
+ConfigDescList_7          = 如果选中，在输入框中显示随机提示
+ConfigDescList_8          = 如果选中，在底部显示命令行
+ConfigDescList_9          = 如果选中，启动时显示气泡提示
+ConfigDescList_10         = 如果选中，仅仅显示前10项快捷项
+ConfigDescList_11         = 如果选中，当窗体弹出时播放声音
+ConfigDescList_12         = 如果选中，执行快捷项后退出本软件
+ConfigDescList_13         = 如果未选中，不显示皮肤图片(可节省虚拟内存约1M)
+ConfigDescList_14         = 如果选中，启动时显示主界面
+ConfigDescList_15         = 如果选中，在系统托盘显示图标
+ConfigDescList_16         = 如果选中，在主界面显示快捷项管理按钮
+ConfigDescList_17         = 如果选中，在主界面显示配置按钮
+ConfigDescList_18         = 如果选中，在主界面显示关闭按钮
+ConfigDescList_19         = 如果选中，当仅剩一项匹配项时无需回车立即执行
+
+[InvalidForm]
+InvalidFormCaption        = 无效快捷项
+CommandLineEempty         = 命令行为空！
+
+[ShortCutManForm]
+ShortCutManFormCaption    = 快捷项管理
+NoInvalidShortCut         = 没有发现无效快捷项
+DeleteBlankLine           = 删除空行？
+DeleteConfirm             = 删除 %s(%s)?
+ValidateConfirm           = 校验会删除一些无效快捷项(但并非所有无效的都会检查出来)，继续吗？
+PathConvertConfirm        = 扫描全部快捷项并进行绝对路径和相对路径的转换(仅处理位于软件运行目录下的快捷项)%sYES: 绝对路径 => 相对路径%sNO: 相对路径 => 绝对路径
+ConvertFinished           = 转换结束 (转换项 = %d)
+
+BtnAddHint                = 添加新快捷项
+BtnEditHint               = 编辑此快捷项
+BtnDeleteHint             = 删除此快捷项
+BtnPathConvertHint        = 绝对路径和相对路径转换
+BtnValidateHint           = 校验全部快捷项并删除失效的快捷项
+BtnHelpHint               = 显示帮助
+BtnCloseHint              = 保存并关闭
+BtnCancelHint             = 不保存并关闭
+
+[ShortCutForm]
+ShortCutFormCaption       = 快捷项
+GrpShortCut               = 快捷项
+BtnFile                   = 文件
+BtnDir                    = 文件夹
+GrpParamType              = 参数类型
+LblEdtCommandLineHint     = 命令行中的 "%p" 会被替换为参数，"%c" 会被替换为剪贴板中的文字
+ParamType_0               = 无参数
+ParamType_1               = 参数无编码
+ParamType_2               = 对参数进行URL编码(如Baidu搜索字符串)
+ParamType_3               = 对参数进行UTF-8编码(如Google/Yahoo搜索字符串)
+SelectDir                 = 请选择文件夹
+ParamConfirm              = 似乎忘记选择参数类型了，是否返回选择？
+ReplaceConfirm            = 替换 "%s" 为 "%s"?
+ReplaceShortCutConfirm    = 快捷项替换确认
+ReplaceNameConfirm        = 名称替换确认
+NameCanNotInclude         = 名称不能包含逗号 ","
+
+[AboutForm]
+Statistics                = 截止目前，您已经运行了%d次快捷项
+
+[DefaultShortCutName]
+Default_ShortCut_Name_0   = 我的电脑
+Default_ShortCut_Name_1   = 资源管理器
+Default_ShortCut_Name_2   = 我的文档
+Default_ShortCut_Name_3   = IE浏览器
+Default_ShortCut_Name_4   = 记事本
+Default_ShortCut_Name_5   = 画图
+Default_ShortCut_Name_6   = Dos窗口
+Default_ShortCut_Name_7   = 计算器
+Default_ShortCut_Name_8   = 显示桌面
+Default_ShortCut_Name_9   = 系统配置
+Default_ShortCut_Name_10  = 注册表编辑器
+Default_ShortCut_Name_11  = 我的IP地址
+Default_ShortCut_Name_12  = 设备管理器
+Default_ShortCut_Name_13  = 任务管理器
+Default_ShortCut_Name_14  = 立即关机
+Default_ShortCut_Name_15  = 立即重启
+Default_ShortCut_Name_16  = Windows 目录
+Default_ShortCut_Name_17  = System32 目录
+Default_ShortCut_Name_18  = Program Files 目录
+Default_ShortCut_Name_19  = 最近打开文件 目录
+Default_ShortCut_Name_20  = 百度 搜索引擎
+Default_ShortCut_Name_21  = Google 搜索引擎
+Default_ShortCut_Name_22  = 搜狗MP3 搜索引擎
+Default_ShortCut_Name_23  = 百度知道 搜索引擎
+Default_ShortCut_Name_24  = VeryCD 搜索引擎
+Default_ShortCut_Name_25  = Yahoo 搜索引擎
+Default_ShortCut_Name_26  = 前往 ALTRun 升级网址
+Default_ShortCut_Name_27  = 编辑 ALTRun 配置
+Default_ShortCut_Name_28  = 添加/删除程序
+Default_ShortCut_Name_29  = 控制面板
+Default_ShortCut_Name_30  = Internet控制
+Default_ShortCut_Name_31  = 系统属性
+Default_ShortCut_Name_32  = 运行
+Default_ShortCut_Name_33  = 百度 搜索剪贴板
+Default_ShortCut_Name_34  = Google 搜索剪贴板
+Default_ShortCut_Name_35  = 只显示本窗口
+Default_ShortCut_Name_36  = 隐藏本窗口
+Default_ShortCut_Name_37  = 恢复窗口

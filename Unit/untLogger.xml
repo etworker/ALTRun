@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="untLogger">
+  <variable name="MutexHandle" type="Cardinal" />
+  <variable name="TraceEnable" type="Boolean" />
+  <variable name="CnDebugEnable" type="Boolean" />
+  <variable name="LogFileName" type="string" />
+  <variable name="CriticalSection" type="_RTL_CRITICAL_SECTION" />
+  <procedure name="InitLogger" visibility="public">
+    <parameters>
+      <parameter name="IsTraceEnable" type="Boolean">
+        <value>
+          False
+        </value>
+      </parameter>
+      <parameter name="IsCnDebugEnable" type="Boolean">
+        <value>
+          False
+        </value>
+      </parameter>
+      <parameter name="IsAppendMode" type="Boolean">
+        <value>
+          False
+        </value>
+      </parameter>
+    </parameters>
+  </procedure>
+  <procedure name="AddLog" visibility="public">
+    <parameters>
+      <parameter name="str" type="string" paramflags="const" />
+    </parameters>
+  </procedure>
+  <procedure name="TraceErr" visibility="public" procflags="overload">
+    <parameters>
+      <parameter name="Msg" type="string" paramflags="const" />
+    </parameters>
+  </procedure>
+  <procedure name="TraceErr" visibility="public" procflags="overload">
+    <parameters>
+      <parameter name="AFormat" type="string" paramflags="const" />
+      <parameter name="Args">
+        <array name="Args">
+          <element type="TVarRec" />
+        </array>
+      </parameter>
+    </parameters>
+  </procedure>
+  <procedure name="TraceMsg" visibility="public" procflags="overload">
+    <parameters>
+      <parameter name="Msg" type="string" paramflags="const" />
+    </parameters>
+  </procedure>
+  <procedure name="TraceMsg" visibility="public" procflags="overload">
+    <parameters>
+      <parameter name="AFormat" type="string" paramflags="const" />
+      <parameter name="Args">
+        <array name="Args">
+          <element type="TVarRec" />
+        </array>
+      </parameter>
+    </parameters>
+  </procedure>
+</namespace>

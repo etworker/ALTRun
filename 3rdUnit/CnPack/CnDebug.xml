@@ -1,0 +1,1484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="CnDebug">
+  <const name="CnMaxTagLength" type="Integer">
+    <value>
+      $8
+    </value>
+  </const>
+  <const name="CnMaxMsgLength" type="Integer">
+    <value>
+      $1000
+    </value>
+  </const>
+  <const name="CnDebugMagicLength" type="Integer">
+    <value>
+      $8
+    </value>
+  </const>
+  <const name="CnDebugMapEnabled" type="Integer">
+    <value>
+      $7F3D92E0
+    </value>
+  </const>
+  <const name="SCnDebugPrefix" type="string">
+    <value>
+      Global\
+    </value>
+  </const>
+  <const name="SCnDebugMapName" type="string">
+    <value>
+      Global\CnDebugMap
+    </value>
+  </const>
+  <const name="SCnDebugQueueEventName" type="string">
+    <value>
+      Global\CnDebugQueueEvent
+    </value>
+  </const>
+  <const name="SCnDebugQueueMutexName" type="string">
+    <value>
+      Global\CnDebugQueueMutex
+    </value>
+  </const>
+  <const name="SCnDebugStartEventName" type="string">
+    <value>
+      Global\CnDebugStartEvent
+    </value>
+  </const>
+  <const name="SCnDebugFlushEventName" type="string">
+    <value>
+      Global\CnDebugFlushEvent
+    </value>
+  </const>
+  <const name="SCnDefaultDumpFileName" type="string">
+    <value>
+      CnDebugDump.cdd
+    </value>
+  </const>
+  <const name="cmtInformation" type="TCnMsgType">
+    <value>
+      cmtInformation
+    </value>
+  </const>
+  <const name="cmtWarning" type="TCnMsgType">
+    <value>
+      cmtWarning
+    </value>
+  </const>
+  <const name="cmtError" type="TCnMsgType">
+    <value>
+      cmtError
+    </value>
+  </const>
+  <const name="cmtSeparator" type="TCnMsgType">
+    <value>
+      cmtSeparator
+    </value>
+  </const>
+  <const name="cmtEnterProc" type="TCnMsgType">
+    <value>
+      cmtEnterProc
+    </value>
+  </const>
+  <const name="cmtLeaveProc" type="TCnMsgType">
+    <value>
+      cmtLeaveProc
+    </value>
+  </const>
+  <const name="cmtTimeMarkStart" type="TCnMsgType">
+    <value>
+      cmtTimeMarkStart
+    </value>
+  </const>
+  <const name="cmtTimeMarkStop" type="TCnMsgType">
+    <value>
+      cmtTimeMarkStop
+    </value>
+  </const>
+  <const name="cmtMemoryDump" type="TCnMsgType">
+    <value>
+      cmtMemoryDump
+    </value>
+  </const>
+  <const name="cmtException" type="TCnMsgType">
+    <value>
+      cmtException
+    </value>
+  </const>
+  <const name="cmtObject" type="TCnMsgType">
+    <value>
+      cmtObject
+    </value>
+  </const>
+  <const name="cmtComponent" type="TCnMsgType">
+    <value>
+      cmtComponent
+    </value>
+  </const>
+  <const name="cmtCustom" type="TCnMsgType">
+    <value>
+      cmtCustom
+    </value>
+  </const>
+  <const name="cmtSystem" type="TCnMsgType">
+    <value>
+      cmtSystem
+    </value>
+  </const>
+  <enum name="TCnMsgType">
+    <element name="cmtInformation" />
+    <element name="cmtWarning" />
+    <element name="cmtError" />
+    <element name="cmtSeparator" />
+    <element name="cmtEnterProc" />
+    <element name="cmtLeaveProc" />
+    <element name="cmtTimeMarkStart" />
+    <element name="cmtTimeMarkStop" />
+    <element name="cmtMemoryDump" />
+    <element name="cmtException" />
+    <element name="cmtObject" />
+    <element name="cmtComponent" />
+    <element name="cmtCustom" />
+    <element name="cmtSystem" />
+  </enum>
+  <set name="TCnMsgTypes" type="TCnMsgType">
+    <element name="cmtInformation" />
+    <element name="cmtWarning" />
+    <element name="cmtError" />
+    <element name="cmtSeparator" />
+    <element name="cmtEnterProc" />
+    <element name="cmtLeaveProc" />
+    <element name="cmtTimeMarkStart" />
+    <element name="cmtTimeMarkStop" />
+    <element name="cmtMemoryDump" />
+    <element name="cmtException" />
+    <element name="cmtObject" />
+    <element name="cmtComponent" />
+    <element name="cmtCustom" />
+    <element name="cmtSystem" />
+  </set>
+  <const name="ttNone" type="TCnTimeStampType">
+    <value>
+      ttNone
+    </value>
+  </const>
+  <const name="ttDateTime" type="TCnTimeStampType">
+    <value>
+      ttDateTime
+    </value>
+  </const>
+  <const name="ttTickCount" type="TCnTimeStampType">
+    <value>
+      ttTickCount
+    </value>
+  </const>
+  <const name="ttCPUPeriod" type="TCnTimeStampType">
+    <value>
+      ttCPUPeriod
+    </value>
+  </const>
+  <enum name="TCnTimeStampType">
+    <element name="ttNone" />
+    <element name="ttDateTime" />
+    <element name="ttTickCount" />
+    <element name="ttCPUPeriod" />
+  </enum>
+  <struct name="TCnMsgAnnex" packed="true">
+    <field name="Level" type="Integer" visibility="public" />
+    <field name="Indent" type="Integer" visibility="public" />
+    <field name="ProcessId" type="Cardinal" visibility="public" />
+    <field name="ThreadId" type="Cardinal" visibility="public" />
+    <field name="Tag" visibility="public">
+      <array name="Tag" low="0" high="7">
+        <element type="Char" />
+      </array>
+    </field>
+    <field name="MsgType" type="Cardinal" visibility="public" />
+    <field name="MsgCPInterval" type="Cardinal" visibility="public" />
+    <field name="TimeStampType" type="Cardinal" visibility="public" />
+    <field name="MsgDateTime" type="TDateTime" visibility="public" />
+  </struct>
+  <struct name="TCnMsgDesc" packed="true">
+    <field name="Length" type="Integer" visibility="public" />
+    <field name="Annex" type="TCnMsgAnnex" visibility="public" />
+    <field name="Msg" visibility="public">
+      <array name="Msg" low="0" high="4095">
+        <element type="Char" />
+      </array>
+    </field>
+  </struct>
+  <pointer name="PCnMsgDesc" type="TCnMsgDesc" indircnt="1" />
+  <struct name="TCnMapFilter" packed="true">
+    <field name="NeedRefresh" type="Cardinal" visibility="public" />
+    <field name="Enabled" type="Integer" visibility="public" />
+    <field name="Level" type="Integer" visibility="public" />
+    <field name="Tag" visibility="public">
+      <array name="Tag" low="0" high="7">
+        <element type="Char" />
+      </array>
+    </field>
+  </struct>
+  <pointer name="PCnMapFilter" type="TCnMapFilter" indircnt="1" />
+  <struct name="TCnMapHeader" packed="true">
+    <field name="MagicName" visibility="public">
+      <array name="MagicName" low="0" high="7">
+        <element type="Char" />
+      </array>
+    </field>
+    <field name="MapEnabled" type="Cardinal" visibility="public" />
+    <field name="MapSize" type="Cardinal" visibility="public" />
+    <field name="DataOffset" type="Integer" visibility="public" />
+    <field name="QueueFront" type="Integer" visibility="public" />
+    <field name="QueueTail" type="Integer" visibility="public" />
+    <field name="Filter" type="TCnMapFilter" visibility="public" />
+  </struct>
+  <pointer name="PCnMapHeader" type="TCnMapHeader" indircnt="1" />
+  <struct name="TCnTimeDesc" packed="true">
+    <field name="Tag" visibility="public">
+      <array name="Tag" low="0" high="7">
+        <element type="Char" />
+      </array>
+    </field>
+    <field name="PassCount" type="Integer" visibility="public" />
+    <field name="StartTime" type="Int64" visibility="public" />
+    <field name="AccuTime" type="Int64" visibility="public" />
+  </struct>
+  <pointer name="PCnTimeDesc" type="TCnTimeDesc" indircnt="1" />
+  <class name="TCnDebugFilter">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="FLevel" type="Integer" visibility="private" />
+      <field name="FTag" type="string" visibility="private" />
+      <field name="FMsgTypes" type="TCnMsgTypes" visibility="private" />
+      <field name="FEnabled" type="Boolean" visibility="private" />
+      <property name="Enabled" visibility="public" read="FEnabled" write="FEnabled" type="Boolean" />
+      <property name="MsgTypes" visibility="public" read="FMsgTypes" write="FMsgTypes" type="TCnMsgTypes" />
+      <property name="Level" visibility="public" read="FLevel" write="FLevel" type="Integer" />
+      <property name="Tag" visibility="public" read="FTag" write="FTag" type="string" />
+    </members>
+  </class>
+  <class name="TCnDebugger">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="FActive" type="Boolean" visibility="private" />
+      <field name="FThrdIDList" type="TList" visibility="private" />
+      <field name="FIndentList" type="TList" visibility="private" />
+      <field name="FTimes" type="TList" visibility="private" />
+      <field name="FFilter" type="TCnDebugFilter" visibility="private" />
+      <field name="FChannel" type="TCnDebugChannel" visibility="private" />
+      <field name="FCSThrdId" type="_RTL_CRITICAL_SECTION" visibility="private" />
+      <field name="FAutoStart" type="Boolean" visibility="private" />
+      <field name="FViewerAutoStartCalled" type="Boolean" visibility="private" />
+      <field name="FIgnoreViewer" type="Boolean" visibility="private" />
+      <field name="FExceptFilter" type="TStringList" visibility="private" />
+      <field name="FExceptTracking" type="Boolean" visibility="private" />
+      <field name="FPostedMessageCount" type="Integer" visibility="private" />
+      <field name="FMessageCount" type="Integer" visibility="private" />
+      <field name="FDumpToFile" type="Boolean" visibility="private" />
+      <field name="FDumpFileName" type="string" visibility="private" />
+      <field name="FDumpFile" type="TFileStream" visibility="private" />
+      <field name="FUseAppend" type="Boolean" visibility="private" />
+      <field name="FAfterFirstWrite" type="Boolean" visibility="private" />
+      <procedure name="CreateChannel" visibility="private">
+      </procedure>
+      <function name="GetActive" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="SetActive" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="PointToString" visibility="private">
+        <parameters>
+          <parameter name="APoint" type="TPoint" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="RectToString" visibility="private">
+        <parameters>
+          <parameter name="ARect" type="TRect" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetExceptTracking" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="SetExceptTracking" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetDiscardedMessageCount" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="VirtualKeyToString" visibility="private">
+        <parameters>
+          <parameter name="AKey" type="Word" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="SetDumpFileName" visibility="private">
+        <parameters>
+          <parameter name="Value" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetDumpToFile" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="CheckEnabled" visibility="protected">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="CheckFiltered" visibility="protected">
+        <parameters>
+          <parameter name="Tag" type="string" paramflags="const" />
+          <parameter name="Level" type="Byte" />
+          <parameter name="AType" type="TCnMsgType" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetCurrentIndent" visibility="protected">
+        <parameters>
+          <parameter name="ThrdID" type="Cardinal" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="IncIndent" visibility="protected">
+        <parameters>
+          <parameter name="ThrdID" type="Cardinal" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="DecIndent" visibility="protected">
+        <parameters>
+          <parameter name="ThrdID" type="Cardinal" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="IndexOfTime" visibility="protected">
+        <parameters>
+          <parameter name="ATag" type="string" paramflags="const" />
+          <retval type="PCnTimeDesc" />
+        </parameters>
+      </function>
+      <function name="AddTimeDesc" visibility="protected">
+        <parameters>
+          <parameter name="ATag" type="string" paramflags="const" />
+          <retval type="PCnTimeDesc" />
+        </parameters>
+      </function>
+      <function name="FormatMsg" visibility="protected">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="InternalOutputMsg" visibility="protected">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="Size" type="Integer" />
+          <parameter name="ATag" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+          <parameter name="AIndent" type="Integer" />
+          <parameter name="AType" type="TCnMsgType" />
+          <parameter name="ThreadID" type="Cardinal" />
+          <parameter name="CPUPeriod" type="Int64" />
+        </parameters>
+      </procedure>
+      <procedure name="InternalOutput" visibility="protected">
+        <parameters>
+          <parameter name="Data" paramflags="var" />
+          <parameter name="Size" type="Integer" />
+        </parameters>
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <procedure name="StartDebugViewer" visibility="public">
+      </procedure>
+      <procedure name="StartTimeMark" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ATag" type="Integer" paramflags="const" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="StopTimeMark" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ATag" type="Integer" paramflags="const" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="StartTimeMark" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ATag" type="string" paramflags="const" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="StopTimeMark" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="ATag" type="string" paramflags="const" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogMsg" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgWithTag" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgWithLevel" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgWithType" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="AType" type="TCnMsgType" />
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgWithTagLevel" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgWithLevelType" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+          <parameter name="AType" type="TCnMsgType" />
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgWithTypeTag" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="AType" type="TCnMsgType" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogFmt" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogFmtWithTag" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogFmtWithLevel" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+          <parameter name="ALevel" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="LogFmtWithType" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+          <parameter name="AType" type="TCnMsgType" />
+        </parameters>
+      </procedure>
+      <procedure name="LogFull" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+          <parameter name="AType" type="TCnMsgType" />
+          <parameter name="CPUPeriod" type="Int64">
+            <value>
+              $0
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogSeparator" visibility="public">
+      </procedure>
+      <procedure name="LogEnter" visibility="public">
+        <parameters>
+          <parameter name="AProcName" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogLeave" visibility="public">
+        <parameters>
+          <parameter name="AProcName" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgWarning" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogMsgError" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogErrorFmt" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogLastError" visibility="public">
+      </procedure>
+      <procedure name="LogAssigned" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Pointer" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogBoolean" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogColor" visibility="public">
+        <parameters>
+          <parameter name="Color" type="TColor" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogFloat" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Extended" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogInteger" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Integer" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogChar" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Char" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogDateTime" visibility="public">
+        <parameters>
+          <parameter name="Value" type="TDateTime" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogDateTimeFmt" visibility="public">
+        <parameters>
+          <parameter name="Value" type="TDateTime" />
+          <parameter name="AFmt" type="string" paramflags="const" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogPointer" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Pointer" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogPoint" visibility="public">
+        <parameters>
+          <parameter name="Point" type="TPoint" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogRect" visibility="public">
+        <parameters>
+          <parameter name="Rect" type="TRect" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogStrings" visibility="public">
+        <parameters>
+          <parameter name="Strings" type="TStrings" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="LogMemDump" visibility="public">
+        <parameters>
+          <parameter name="AMem" type="Pointer" />
+          <parameter name="Size" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="LogVirtualKey" visibility="public">
+        <parameters>
+          <parameter name="AKey" type="Word" />
+        </parameters>
+      </procedure>
+      <procedure name="LogVirtualKeyWithTag" visibility="public">
+        <parameters>
+          <parameter name="AKey" type="Word" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogObject" visibility="public">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="LogObjectWithTag" visibility="public">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogCollection" visibility="public">
+        <parameters>
+          <parameter name="ACollection" type="TCollection" />
+        </parameters>
+      </procedure>
+      <procedure name="LogCollectionWithTag" visibility="public">
+        <parameters>
+          <parameter name="ACollection" type="TCollection" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="LogComponent" visibility="public">
+        <parameters>
+          <parameter name="AComponent" type="TComponent" />
+        </parameters>
+      </procedure>
+      <procedure name="LogComponentWithTag" visibility="public">
+        <parameters>
+          <parameter name="AComponent" type="TComponent" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsg" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgWithTag" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgWithLevel" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgWithType" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="AType" type="TCnMsgType" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgWithTagLevel" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgWithLevelType" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+          <parameter name="AType" type="TCnMsgType" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgWithTypeTag" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="AType" type="TCnMsgType" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceFmt" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceFmtWithTag" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceFmtWithLevel" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+          <parameter name="ALevel" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceFmtWithType" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+          <parameter name="AType" type="TCnMsgType" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceFull" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const" />
+          <parameter name="ALevel" type="Integer" />
+          <parameter name="AType" type="TCnMsgType" />
+          <parameter name="CPUPeriod" type="Int64">
+            <value>
+              $0
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceSeparator" visibility="public">
+      </procedure>
+      <procedure name="TraceEnter" visibility="public">
+        <parameters>
+          <parameter name="AProcName" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceLeave" visibility="public">
+        <parameters>
+          <parameter name="AProcName" type="string" paramflags="const" />
+          <parameter name="ATag" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgWarning" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceMsgError" visibility="public">
+        <parameters>
+          <parameter name="AMsg" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceErrorFmt" visibility="public">
+        <parameters>
+          <parameter name="AFormat" type="string" paramflags="const" />
+          <parameter name="Args">
+            <array name="Args">
+              <element type="TVarRec" />
+            </array>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceLastError" visibility="public">
+      </procedure>
+      <procedure name="TraceAssigned" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Pointer" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceBoolean" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceColor" visibility="public">
+        <parameters>
+          <parameter name="Color" type="TColor" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceFloat" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Extended" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceInteger" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Integer" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceChar" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Char" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceDateTime" visibility="public">
+        <parameters>
+          <parameter name="Value" type="TDateTime" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceDateTimeFmt" visibility="public">
+        <parameters>
+          <parameter name="Value" type="TDateTime" />
+          <parameter name="AFmt" type="string" paramflags="const" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TracePointer" visibility="public">
+        <parameters>
+          <parameter name="Value" type="Pointer" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TracePoint" visibility="public">
+        <parameters>
+          <parameter name="Point" type="TPoint" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceRect" visibility="public">
+        <parameters>
+          <parameter name="Rect" type="TRect" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceStrings" visibility="public">
+        <parameters>
+          <parameter name="Strings" type="TStrings" />
+          <parameter name="AMsg" type="string" paramflags="const">
+            <value>
+              
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="TraceMemDump" visibility="public">
+        <parameters>
+          <parameter name="AMem" type="Pointer" />
+          <parameter name="Size" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceVirtualKey" visibility="public">
+        <parameters>
+          <parameter name="AKey" type="Word" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceVirtualKeyWithTag" visibility="public">
+        <parameters>
+          <parameter name="AKey" type="Word" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceObject" visibility="public">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceObjectWithTag" visibility="public">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceCollection" visibility="public">
+        <parameters>
+          <parameter name="ACollection" type="TCollection" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceCollectionWithTag" visibility="public">
+        <parameters>
+          <parameter name="ACollection" type="TCollection" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceComponent" visibility="public">
+        <parameters>
+          <parameter name="AComponent" type="TComponent" />
+        </parameters>
+      </procedure>
+      <procedure name="TraceComponentWithTag" visibility="public">
+        <parameters>
+          <parameter name="AComponent" type="TComponent" />
+          <parameter name="ATag" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="AddFilterExceptClass" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="E" type="ExceptClass" />
+        </parameters>
+      </procedure>
+      <procedure name="RemoveFilterExceptClass" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="E" type="ExceptClass" />
+        </parameters>
+      </procedure>
+      <procedure name="AddFilterExceptClass" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="EClassName" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="RemoveFilterExceptClass" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="EClassName" type="string" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="EvaluateObject" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="AObject" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="EvaluateObject" visibility="public" procflags="overload">
+        <parameters>
+          <parameter name="APointer" type="Pointer" />
+        </parameters>
+      </procedure>
+      <property name="Channel" visibility="public" read="FChannel" type="TCnDebugChannel" />
+      <property name="Filter" visibility="public" read="FFilter" type="TCnDebugFilter" />
+      <property name="Active" visibility="public" read="GetActive" write="SetActive" type="Boolean" />
+      <property name="ExceptTracking" visibility="public" read="GetExceptTracking" write="SetExceptTracking" type="Boolean" />
+      <property name="AutoStart" visibility="public" read="FAutoStart" write="FAutoStart" type="Boolean" />
+      <property name="DumpToFile" visibility="public" read="FDumpToFile" write="SetDumpToFile" type="Boolean" />
+      <property name="DumpFileName" visibility="public" read="FDumpFileName" write="SetDumpFileName" type="string" />
+      <property name="UseAppend" visibility="public" read="FUseAppend" write="FUseAppend" type="Boolean" />
+      <property name="MessageCount" visibility="public" read="FMessageCount" type="Integer" />
+      <property name="PostedMessageCount" visibility="public" read="FPostedMessageCount" type="Integer" />
+      <property name="DiscardedMessageCount" visibility="public" read="GetDiscardedMessageCount" type="Integer" />
+    </members>
+  </class>
+  <class name="TCnDebugChannel">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="FAutoFlush" type="Boolean" visibility="private" />
+      <field name="FActive" type="Boolean" visibility="private" />
+      <procedure name="SetAutoFlush" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetActive" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Value" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="CheckReady" visibility="public" procflags="virtual">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="UpdateFlush" visibility="public" procflags="virtual">
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="IsAutoFlush" type="Boolean">
+            <value>
+              True
+            </value>
+          </parameter>
+        </parameters>
+      </constructor>
+      <procedure name="StartDebugViewer" visibility="public" procflags="virtual">
+      </procedure>
+      <function name="CheckFilterChanged" visibility="public" procflags="virtual">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="RefreshFilter" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Filter" type="TCnDebugFilter" />
+        </parameters>
+      </procedure>
+      <procedure name="SendContent" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="MsgDesc" paramflags="var" />
+          <parameter name="Size" type="Integer" />
+        </parameters>
+      </procedure>
+      <property name="Active" visibility="public" read="FActive" write="SetActive" type="Boolean" />
+      <property name="AutoFlush" visibility="public" read="FAutoFlush" write="SetAutoFlush" type="Boolean" />
+    </members>
+  </class>
+  <classref name="TCnDebugChannelClass" ref="TCnDebugChannel" />
+  <class name="TCnMapFileChannel">
+    <ancestor name="TCnDebugChannel" namespace="CnDebug">
+      <methodref name="SetAutoFlush" visibility="private" />
+      <methodref name="SetActive" visibility="public" />
+      <methodref name="CheckReady" visibility="public" />
+      <methodref name="UpdateFlush" visibility="public" />
+      <methodref name="Create" visibility="public" />
+      <methodref name="StartDebugViewer" visibility="public" />
+      <methodref name="CheckFilterChanged" visibility="public" />
+      <methodref name="RefreshFilter" visibility="public" />
+      <methodref name="SendContent" visibility="public" />
+      <propertyref name="Active" visibility="public" />
+      <propertyref name="AutoFlush" visibility="public" />
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FMap" type="Cardinal" visibility="private" />
+      <field name="FQueueEvent" type="Cardinal" visibility="private" />
+      <field name="FQueueFlush" type="Cardinal" visibility="private" />
+      <field name="FMapSize" type="Integer" visibility="private" />
+      <field name="FQueueSize" type="Integer" visibility="private" />
+      <field name="FMapHeader" type="Pointer" visibility="private" />
+      <field name="FMsgBase" type="Pointer" visibility="private" />
+      <field name="FFront" type="Integer" visibility="private" />
+      <field name="FTail" type="Integer" visibility="private" />
+      <function name="IsInitedFromHeader" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="DestroyHandles" visibility="private">
+      </procedure>
+      <procedure name="LoadQueuePtr" visibility="private">
+      </procedure>
+      <procedure name="SaveQueuePtr" visibility="private">
+        <parameters>
+          <parameter name="SaveFront" type="Boolean">
+            <value>
+              False
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <function name="CheckReady" visibility="public" procflags="override">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="UpdateFlush" visibility="public" procflags="override">
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="IsAutoFlush" type="Boolean">
+            <value>
+              True
+            </value>
+          </parameter>
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <procedure name="StartDebugViewer" visibility="public" procflags="override">
+      </procedure>
+      <function name="CheckFilterChanged" visibility="public" procflags="override">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="RefreshFilter" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Filter" type="TCnDebugFilter" />
+        </parameters>
+      </procedure>
+      <procedure name="SendContent" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="MsgDesc" paramflags="var" />
+          <parameter name="Size" type="Integer" />
+        </parameters>
+      </procedure>
+    </members>
+  </class>
+  <variable name="CnDebugChannelClass" type="TCnDebugChannelClass" visibility="public" />
+  <variable name="CnDebugMagicName" type="string" visibility="public" />
+  <variable name="CurrentLevel" type="Byte" visibility="public" />
+  <variable name="CurrentTag" type="string" visibility="public" />
+  <variable name="CurrentMsgType" type="TCnMsgType" visibility="public" />
+  <variable name="TimeStampType" type="TCnTimeStampType" visibility="public" />
+  <function name="CnDebugger" visibility="public">
+    <parameters>
+      <retval type="TCnDebugger" />
+    </parameters>
+  </function>
+</namespace>

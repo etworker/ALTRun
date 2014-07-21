@@ -1,0 +1,63 @@
+object ParamForm: TParamForm
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = 'ng'
+  ClientHeight = 22
+  ClientWidth = 394
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = #23435#20307
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnHide = FormHide
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
+  OnMouseDown = FormMouseDown
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cbbParam: TComboBoxEx
+    Left = 0
+    Top = 0
+    Width = 344
+    Height = 22
+    Align = alClient
+    AutoCompleteOptions = [acoAutoSuggest, acoAutoAppend]
+    ItemsEx = <>
+    Ctl3D = False
+    ItemHeight = 16
+    ParentCtl3D = False
+    TabOrder = 0
+    OnChange = cbbParamChange
+    OnKeyPress = cbbParamKeyPress
+    OnKeyUp = cbbParamKeyUp
+  end
+  object btnOK: TRzButton
+    Left = 344
+    Top = 0
+    Width = 50
+    Height = 22
+    Default = True
+    ModalResult = 1
+    Align = alRight
+    Caption = 'btnOK'
+    HotTrack = True
+    TabOrder = 1
+    OnClick = btnOKClick
+  end
+  object tmrHide: TTimer
+    Enabled = False
+    Interval = 10000
+    OnTimer = tmrHideTimer
+    Left = 72
+    Top = 8
+  end
+end
